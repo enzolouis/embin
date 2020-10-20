@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PASTE - LIST</title>
+	{% load static %}
+	<link rel="icon" href="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png">
+	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'bin/paste/index.css' %}" rel="stylesheet">
+	<meta name="description" content="ASFIX - PASTE - Go search in a list of pastes">
+	<meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale=1, user-scalable=no">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+
+{% load to_str %}
+{% load range %}
+
+{% include 'basenav.html' %}
+
+
+<main>
+
+<a href="create">
+	<button id="goto-create-paste">
+		
+	</button>
+</a>
+
+<div class="title-flex">
+	<div class="title-child">
+		PASTE - {{ pastes|length }}
+	</div>
+
+	<div class="result-found-number-child" id="paste-result-number">
+		
+	</div>
+
+	{% csrf_token %} <!-- tags django à mettre pour tous les formulaires pour éviter les erreur CSRF lors du post,
+	ici ce n'est pas vraiment un <form> mais on au clic du bouton 'search-button', on fait un requête ajax avec jquerry.
+	On a d'ailleurs besoin lors de cette requête avec jquerry d'une fonction de vérification CSRF, ainsi donc d'une fonction 
+	getCookie, la fonction getCookie vient de la documentation de django à propos des requête ajax : <LIEN_A_METTRE> -->
+	<div class="input-child">
+		<button id="show-all-button" onclick="showAllPaste()">Tout afficher ?</button>
+		<input id="search-input" placeholder="Search paste"><button id="search-button">
+			<i class="fas fa-search"></i>
+		</button>
+	</div>
+</div>
+
+
+<button id="search-logo">
+
+</button>
+
+<div class="parent">
+	{% for post in pastes %}
+	<a href="{% url 'bin:show' post.id %}" class="child" id="paste-{{ post.id }}">
+		<div class="details">
+			<span class="created_at">
+				🕐 {{ post.there_is_ago }}
+			</span>
+			<span class="views_number">
+				{{ post.views }} 👁
+			</span>
+			<span class="title">
+				{{ post.title|upper|truncatechars:50 }}
+			</span>
+		</div>
+
+		<div class='overlay'>
+			<!--<a href="/bin/paste/{{ post.id }}">
+				<button class="action">
+					LIRE LA SUITE
+				</button>
+			</a>-->
+
+			<!--<span class="id">
+				{{post.id}} {{ post.views }} vues
+			</span>-->
+
+			<img src="{{ post.img }}" onerror="this.src=`{% static 'bin/paste/error_image.png' %}`">
+
+			<!--<div class="icon">
+				<i class="fas fa-file-code"></i>
+			</div>-->
+			<!--<div class="triangle">Hello world</div>-->
+
+		</div>
+	</a>
+
+	<div id="result-not-found">
+		<img src="https://emoji.gg/assets/emoji/7685_no.png">
+		<p>
+			No result found for <q id="result-not-found-search"></q>
+		</p>
+	</div>
+
+	<!--{% if not forloop.last %}
+	
+	{% endif %}-->
+
+	{% empty %}
+	
+	<h1>NO PASTE</h1>
+
+	{% endfor %}
+</div>
+
+
+</main>
+
+{% include 'footer.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+<script>
+	$(document).ajaxStart(function() {
+		console.log("start")
+		$("#search-logo").show()
+	}).ajaxStop(function () {
+		$("#search-logo").hide();
+    });
+
+    function ajaxSearchRequest() {
+		let input = document.getElementById("search-input");
+		let resultLabel = document.getElementById("paste-result-number")
+		if (input.value == "") {
+			resultLabel.innerHTML = "<span style='color:red'>Aucune saisie !</span>";
+			return;
+		}
+		$("#result-not-found").hide()
+		$.ajax({
+				type:"POST",
+				url:"./search", // url enregistré dans `applications.bin.urls`, view enregistré dans `applications.bin.urls`
+								// traité uniquement si la requête est dites ajax. Sinon raise 404
+				data:"input=" + input.value,
+				success:function(data) {
+					let find_number = 0;
+					for(x of data) {
+						if (x[1] == true) {
+							find_number++;
+							document.getElementById("paste-"+x[0]).style.display = "block";
+						} else {
+							document.getElementById("paste-"+x[0]).style.display = "none";
+						}
+					}
+
+					if (find_number <= 0) { // <= pour empêcher de bypass, mais normalement c'est un simple ==
+						resultLabel.innerHTML = "0 résultat";
+						$("#result-not-found").show()
+						document.getElementById("result-not-found-search").innerHTML = " " + input.value + " ";
+					} else if (find_number == 1) {
+						resultLabel.innerHTML = "1 résultat";
+					} else {
+						resultLabel.innerHTML = find_number + " résultats";
+					}
+				}
+			});
+	}
+
+	$(document).ready(function() {
+
+		$('#search-button').click(ajaxSearchRequest);
+		$('#search-input').keypress(function(event) {
+		    if(event.keyCode == '13' || event.which == '13') ajaxSearchRequest();
+		});
+
+		
+
+		function getCookie(name) {
+		    let cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        const cookies = document.cookie.split(';');
+		        for (let i = 0; i < cookies.length; i++) {
+		            const cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken');
+
+		function csrfSafeMethod(method) {
+			return (/^GET|HEAD|OPTIONS|TRACE$/.test(method));
+		}
+
+		// à chaque requête ajax, la vérification csrf est appelé
+		$.ajaxSetup({
+			crossDomain: false,
+			beforeSend:function(xhr, settings) {
+				if (!csrfSafeMethod(settings.type)) {
+					xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				}
+			}
+		})
+
+});
+</script>
+
+<script type="text/javascript">
+	function showAllPaste() {
+		document.getElementById("result-not-found").style.display = "none";
+		let children = document.getElementsByClassName("child");
+		for (child of children) {
+			child.style.display = "block";
+		}
+
+		const resultLabel = document.getElementById("paste-result-number")
+		resultLabel.innerHTML = "Tout est maintenant affiché !";
+
+		setTimeout(function () {
+			resultLabel.innerHTML = ""
+		}, 3000)
+	}
+
+</script>
+
+</body>
+</html>

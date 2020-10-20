@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'bin/paste/create.css' %}" rel="stylesheet">
+	<link href="{% static 'bin/paste/index.css' %}" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+	<title>Paste - Create</title>
+</head>
+<body>
+
+{% include 'basenav.html' %}
+
+<main>
+
+<form class="create-form" method="post" action="/bin/paste/create"> <!-- return the same page but with a django redirect (POST) -->
+	{% csrf_token %}
+
+	<div class="form-content">
+
+		<div class="parent">
+
+			<div class="child" style="flex:0 0 27%">
+			<div class="details">
+				<span class="created_at">
+					il y a 1 secondes
+				</span>
+				<span class="views_number">
+					0 vues
+				</span>
+				<input name="title" class="title" value="TITLE">
+
+			</div>
+
+
+			<div class='overlay'>
+				<!--<a href="/bin/paste/{{ post.id }}">
+					<button class="action">
+						LIRE LA SUITE
+					</button>
+				</a>-->
+
+				<!--<span class="id">
+					{{post.id}} {{ post.views }} vues
+				</span>-->
+
+				
+				<img id="show-image-img" onerror="this.src=`{% static 'bin/paste/error_image.png'%}`;document.getElementById('show-image-input').style.border = '1px solid red'">
+
+				<!--<div class="icon">
+					<i class="fas fa-file-code"></i>
+				</div>-->
+				<!--<div class="triangle">Hello world</div>-->
+
+			</div>
+			</div>
+
+
+
+		</div>
+		
+		<input required id="show-image-input" class="img_link" name="img" placeholder="image link">
+
+		<section class="parts">
+
+			<h1 class="title">
+				CONTENU
+			</h1>
+			
+			<textarea required placeholder="write your paste..." name="content" rows="50" columns="50"></textarea>
+
+		</section>
+
+		<section class="parts">
+			<h1 class="title">
+				TAGS
+			</h1>
+
+			<div id="tags">
+				<button type="button" onclick="newTag()">+</button>
+			</div>
+		</section>
+
+		<input class="submit" type="submit" value="✓">
+
+	</div>
+
+	
+</form>
+
+</main>
+
+{% include 'footer.html' %}
+
+
+
+<script>
+	function newTag() {
+		let tags = document.getElementById("tags");
+		tags.innerHTML = `<input class='tags-input' name='tags' placeholder='tag'></input>` + tags.innerHTML
+	}
+
+	let show = document.getElementById("show-image-input")
+
+	show.addEventListener("focusout", function() {
+		show.style.border = "1px solid green"
+		document.getElementById("show-image-img").src = show.value
+	});
+
+	
+</script>
+</body>
+</html>

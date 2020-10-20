@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'bin/paste/show.css' %}" rel="stylesheet">
+	<title>Paste - Show</title>
+</head>
+<body>
+
+
+{% load range %}
+
+{% include 'basenav.html' %}
+
+<main>
+<div class="title">
+	<p class="title">
+		{{ paste.title }}
+	</p>
+
+	<p class="number">
+		#{{ paste.id }}
+	</p>
+</div>
+
+<div class="content">
+	<pre>
+{{ paste.content }}
+	</pre>
+</div>
+
+
+</main>
+
+{% include 'footer.html' %}
+
+<!--
+<div class="paste_enum">
+{% for  x in 10|range %}
+
+<div class="child">
+	<a href="/bin/paste/{{x}}">{{ x }}</a>
+</div>
+
+{% endfor %}
+</div>-->
+
+<style>
+
+	h1 {
+		overflow: auto;
+		color:red;
+	}
+
+	a {
+		color:white;
+		text-decoration:none;
+	}
+
+	.paste_enum {
+		display:flex;
+		margin-top:30%;
+		width:100%;
+		flex-flow:row wrap;
+		bottom:20;
+		left:10;
+	}
+
+	.paste_enum .child {
+		flex:1 0 10%;
+		text-align:center;
+		font-size:130%;
+		border:3px solid white;
+		padding:2%;
+		background-color:#00000f;
+	}
+
+</style>
+
+</body>
+</html>

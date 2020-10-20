@@ -1,0 +1,1 @@
+web: gunicorn asfix.wsgi --log-file -

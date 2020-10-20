@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bad url [404]</title>
+</head>
+<body>
+<style type="text/css">
+
+	body {
+		background-color:#00000f;
+	}
+	
+	div.error_return {
+		color:white;
+		margin:5% auto;
+		width:50%;
+	}
+
+	a.home {
+		position:absolute;
+		top:50%;
+
+		left:20%;
+		right:20%;
+
+		margin:0 auto;
+
+		width:40%;
+
+		text-align:center;
+		color:white;
+		text-decoration:none;
+
+		background-color:#7289DA;
+
+		border-radius:10px;
+		padding:1%;
+
+		font-weight:bold;
+		text-shadow:1px 1px 2px lightblue, 0 0 1em lightblue, 0 0 0.2em lightblue;
+		
+		transition:background-color 0.5s linear, color 0.2s linear, transform 0.2s linear;
+	}
+
+	a.home:hover {
+		background-color:white;
+		color:#7289DA;
+		transform:scale(1.12);
+	}
+
+	a.home:active {
+		transform:scale(2);
+	}
+
+	p.error_type {
+		color:#dc3545;
+
+		position:absolute;
+		top:80%;
+
+		left:20%;
+		right:20%;
+
+		margin:0 auto;
+
+		width:40%;
+		text-align:center;
+
+
+	}
+
+
+
+	@keyframes drive_error {
+		from {
+			transform: rotate(1.5turn) scale(3);
+		}
+
+		to {
+			transform:rotate(0.5turn) scale(3);
+		}
+	}
+
+</style>
+
+<div class="error_return">
+
+{{ response }}
+
+</div>
+
+<a class="home" href="">
+	BACK TO HOME
+</a>
+<p class="error_type">
+	[404] - Not found
+</p>
+
+</body>
+</html>

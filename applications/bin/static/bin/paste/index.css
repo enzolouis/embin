@@ -1,0 +1,359 @@
+
+
+
+#goto-create-paste {
+	position:fixed;
+	bottom:2%;
+	right:1%;
+	background-color:white;
+	color:white;
+	z-index:100000;
+	cursor:pointer;
+	width:70px;
+	height:70px;
+	border-radius:70px;
+	font-size:300%; /* triche, à refaire. Le "+" n'est pas au milieu du bouton, enlever ce padding, et ca se voit. */
+	background:none;
+	background-image:url("https://www.freeiconspng.com/thumbs/edit-icon-png/edit-pencil-icon-25.png");
+	opacity:0.5;
+	background-size:75%;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-color:#e84118;
+
+	transition:all 0.4s linear;
+}
+
+#goto-create-paste:hover {
+	opacity:1;
+}
+
+#search-logo {
+	position:absolute;
+	display:none;
+	left:47%;
+	right:50%;
+	margin-top:2%;
+	width:70px;
+	height:70px;
+	border-radius:70px;
+	/*background-color:#fefefe; */
+	background:none;
+
+	transition:all 0.4s linear;
+	animation-name:turn;
+	animation-iteration-count:infinite;
+	animation-duration:1s;
+}
+
+@keyframes turn {
+	0% {
+		border:none;
+	}
+
+	20% {
+		border-right:3px solid #204ecf;
+	}
+
+	30% {
+		border-top:3px solid #204ecf;	
+	}
+
+	40% {
+		border-left:3px solid #204ecf;	
+	}
+
+	50% {
+		border-bottom:3px solid #204ecf;	
+	}
+
+	60% {
+		border-right:none;	
+	}
+
+	70% {
+		border-top:none;	
+	}
+
+	80% {
+		border-left:none;	
+	}
+
+	90% {
+		border-bottom:none;	
+	}
+
+	100% {
+		border:none;
+	}	
+}
+
+/* TITRE - PASTE */
+
+div.title-flex {
+	display:flex;
+	flex-flow:row wrap;
+	align-items:center;
+	background-color:white;
+	color:#204ecf;
+	margin-top:2%;
+	padding:3%;
+	border-top:5px solid blue;
+	border-bottom:5px solid blue;
+	font-size:200%;
+}
+
+div.title-flex .title-child {
+	flex:0.5;
+}
+
+div.title-flex .result-found-number-child {
+	flex:0.5;
+	font-size:50%;
+}
+
+div.title-flex .show-all-paste-child {
+	flex:0.4;
+}
+
+div.title-flex .show-all-paste-child button {
+	cursor:pointer;
+	border:none;
+	padding:5%;
+	background-color:#204ecf;
+	color:white;
+	transition:all 1s linear;
+}
+
+div.title-flex .show-all-paste-child button:hover {
+	background-color:#00000f;
+}
+
+
+
+div.title-flex .input-child {
+	flex:0.6;
+}
+
+
+
+
+div.title-flex .input-child #search-input {
+	width:80%;
+	padding:5%;
+	cursor:text;
+	color:#204ecf;
+	border:1px solid #CFD7E6;
+	border-right:none; /* fusionner avec le button à droite */
+	text-align:left;
+	font-weight:800;
+	transition:all 0.3s linear;
+}
+
+
+div.title-flex .input-child #search-input:hover {
+	background-color:#204ecf;
+	color:white;
+	opacity:0.8;
+}
+
+div.title-flex .input-child #search-input::placeholder {
+	opacity:0.5;
+	font-weight:bold;
+}
+
+div.title-flex .input-child button {
+	color:white;
+	background-color:#204ecf; /* #e84118 */
+	cursor:pointer;
+	transition:background-color 0.3s linear;
+	border:1px solid #CFD7E6;
+}
+
+div.title-flex .input-child button:hover {
+	background-color:#00000f;
+}
+
+div.title-flex .input-child #search-button {
+	width:20%;
+	padding:5%;
+	border-left:none; /* fusionner avec l'input à gauche */
+}
+
+div.title-flex .input-child #show-all-button {
+	width:100%;
+	padding:4%;
+	margin-bottom:3%;
+}
+
+/* END */
+
+
+/* CARD */
+
+#result-not-found {
+	display:none;
+	text-align:center;
+	word-wrap: break-word;
+  	white-space: pre-wrap;
+	overflow:auto;
+}
+
+#result-not-found p {
+	color:red;
+	font-weight:bold;
+}
+
+#result-not-found p q {
+	color:darkred;
+}
+
+button {
+	border:none;
+}
+
+.parent {
+	padding:2%;
+	margin:5% auto;
+	width:100%;
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:center;
+	align-items:center;
+}
+
+
+.child {
+	flex:0 0 27%; /* CH */
+	margin:2% 1%;
+	overflow:hidden;
+	color:#373737;
+	width:25px;
+	height:300px; /* CH */
+	/* position:relative; */
+	cursor:pointer;
+	-webkit-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
+	opacity:0.9;
+	border-radius:10px;
+	background-color:#e84118;
+	transition:all 0.3s ease-out;
+	padding:0 10px 10px 10px;
+}
+
+.child:hover{
+	transform:scale(0.8);
+	z-index:10000;
+	opacity:1;
+	/* border-bottom:10px solid #4cd137; */
+}
+/*
+.child:hover div.details {
+	border-bottom:10px solid #4cd137;
+	background-color:#4cd137;
+}
+
+.child:hover div.details .title {
+	background-color:#44bd32;
+}
+*/
+
+.overlay {
+	background-color:#e84118 !important;
+	height:70%; /* CH */
+}
+
+.overlay img {
+	position:relative;
+	width:100%;
+	height:100%;
+	border-radius:5px;
+}
+
+
+div.details {
+	color:#00000f;
+	background-color:#e84118;
+	display:flex;
+	flex-flow:row wrap;
+	align-items:center;
+	height:30%; /* CH */
+	margin-bottom:1%;
+}
+
+div.details .title {
+	flex:1 0 100%;
+	overflow:hidden;
+	text-align:center;
+	font-weight:bold;
+	padding:3%;
+	background-color:#c23616;
+	color:#fefefe;
+	border-radius:10px;
+	font-size:80%;
+}
+
+div.details .created_at {
+	font-size:15px;
+	display:block;
+	flex:1 0 50%;
+	height:30%;
+	text-align:left;
+	padding:2%;
+	color:#fefefe;
+	font-weight:bold;
+}
+
+div.details .views_number {
+	font-size:15px;
+	flex:1 0 50%;
+	text-align:right;
+	height:30%;
+	padding:2%;
+	color:#fefefe;
+	font-weight:bold;
+}
+
+@media screen and (max-width:800px) {
+	.child {
+		flex:1 0 100%;
+		margin:0;
+		border:none;
+	}
+}
+
+
+span.id {
+	position:absolute;
+	color:white;
+	font-weight:bold;
+	background-color:#dc3545;
+	padding:1px 2% 0 3%;
+	font-size:25px;
+	top:0;
+	right:0;
+	/* float:right; */
+	border-radius:10px 30px 10px 100px;
+	
+}
+
+
+.action {
+	position:absolute;
+	background:none;
+	border:none;
+	padding:3%;
+	color:white;
+	opacity:0.5;
+	cursor:pointer;
+	transition:all 0.2s linear;
+}
+
+.action:hover {
+	opacity:1;
+}
+
+.action > img {
+	width:60px;
+}

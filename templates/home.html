@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'home.css' %}" rel="stylesheet">
+	<title>Home - Asfix</title>
+</head>
+<body>
+
+{% include 'basenav.html' %}
+
+<main>
+
+<div class="presentation">
+	<h1>
+		ASFIX PROJECT
+	</h1>
+	<img src="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png" width="100">
+</div>
+
+<div class="description">
+What for ?
+</div>
+
+<div class="other">
+Je sais pas quoi mettre mais bon<br>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+
+</main>
+
+<script type="text/javascript">
+	
+	window.onscroll = function() {scrollFunction()}
+	function scrollFunction() {
+		let navigation = document.getElementsByClassName("nav")[0]
+
+		child = navigation.children
+
+		if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+			navigation.style.opacity = "0.5"
+
+			// navigation.style.height = "15%";
+			// navigation.style.alignItems = "start";
+		} else {
+
+			navigation.style.opacity = "0.9"
+			
+			// navigation.style.height = "20%";
+			// navigation.style.alignItems = "center";
+		}
+
+
+	}
+
+	const content = document.getElementsByClassName("nav")[0];
+	window.addEventListener("scroll", (e) => {
+
+	  var scrolled = document.scrollingElement.scrollTop;
+	  var position = content.offsetTop;
+
+	  if(scrolled < position + 100){
+	      content.style.opacity = "1"
+	  }
+	});
+		
+</script>
+
+</body>
+
+</html>

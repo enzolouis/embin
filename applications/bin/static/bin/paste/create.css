@@ -1,0 +1,107 @@
+form.create-form {
+	background-color:inherit;
+	height:100%;
+}
+
+form.create-form input {
+	display:block;
+}
+
+/* MAIN TEXTAREA */
+div.form-content {
+	border:20px solid #2C2F33; /* simulate padding */
+	background-color:#2C2F33;
+}
+
+textarea {
+	width:100%;
+	color:#fefefe;
+	resize:none;
+	background:none;
+}
+
+/* */
+
+.parts {
+	border-top:5px solid #007bff;
+	padding-top:2%;
+	margin-top:2%;
+}
+
+h1.title {
+	margin:1% auto;
+	width:20%;
+	background-color:#007bff;
+	color:#fefefe;
+
+	text-align:center;
+	border-radius:20px;
+}
+
+#tags {
+	padding:3%;
+	display:flex;
+	flex-flow:row wrap;
+	background-color:#2C2F33;
+	justify-content:center;
+}
+
+#tags button, #tags input {
+	flex:0 0 10%;
+	text-align:center;
+	background-color:#2C2F33;
+	color:#fefefe;
+	padding:1%;
+	border-radius:20px;
+	border:2px solid #fefefe;
+	margin:2%;
+}
+
+#tags button {
+	background-color:#fefefe;
+	color:#2C2F33;
+	cursor:pointer;
+}
+
+
+
+
+
+/* CARD template in create */
+
+.child:hover {
+	transform:none !important;
+}
+
+input.title {
+	border:none;
+}
+
+#show-image-input {
+	margin:0 auto;
+	width:80%;
+	text-align:center;
+	padding:2%;
+	color:#fefefe;
+	background-color:#23272A;
+	border:none;
+}
+
+
+.submit {
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	
+	cursor:pointer;
+	border:none;
+
+	background-color:#4cd137;
+	color:#fefefe;
+
+	font-size:250%;
+	width:100px;
+	height:100px;
+	border-radius:100px;
+
+}
