@@ -14,7 +14,20 @@ div.presentation {
 	text-align:center;
 }
 
-div.presentation img {}
+div.presentation img {
+	animation-name:test;
+	animation-duration:5s;
+	animation-iteration-count:infinite;
+}
+
+@keyframes test {
+	from {
+		transform:rotate(1turn);
+	}
+	to {
+		transform:rotate(-1turn);
+	}
+}
 
 div.description {
 	background-color:white;
