@@ -8,13 +8,23 @@
 	transform: translateX(-50%);
 	width:50%;
 
-	background-color:#fefefe;
-	-webkit-box-shadow: 0px 0px 27px 0px rgba(41,222,55,0.75);
-	-moz-box-shadow: 0px 0px 27px 0px rgba(41,222,55,0.75);
-	box-shadow: 0px 0px 27px 0px rgba(41,222,55,0.75);
 	border-radius:5px;
+	background-color:#fefefe;
+	border: 2px rgba(41,222,55,0.65) solid;
+	/*
+dotted;
+dashed;
+solid;
+double;
+groove;
+ridge;
+inset;
+outset;
+*/
 
-
+	box-shadow: 0px 0px 10px 2px rgba(41,222,55,0.65);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(41,222,55,0.65);
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(41,222,55,0.65);
 }
 
 .div-login a {
@@ -41,14 +51,14 @@
 	background-color:#fefefe;
 	color:#4cd137;
 	border:1px solid #4cd137;
-	margin:10% 3% 4% 3%;
+	margin:10% 5% 4% 5%;
 }
 
 .div-login .sign-up:hover {
 	background-color:#fefefe;
 	color:#487eb0;
 	border:1px solid #487eb0;
-	margin:4% 3% 10% 3%;
+	margin:4% 5% 10% 5%;
 }
 
 .div-login a:hover:after {
