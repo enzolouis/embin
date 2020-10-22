@@ -5,6 +5,22 @@
 	padding:0;
 	margin:0;
 	border:0;
+	font-family:"Verdana";
+	outline:none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul, li {
+	list-style: none;
 }
 
 pre {
@@ -61,6 +77,8 @@ main {
 }
 
 
+
+
 /* NAVIGATION BAR */
 
 
@@ -113,4 +131,59 @@ header.navbar-parent {
 #navbar-deploy img {
 	width:50px;
 	height:50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BUTTON CONVENTIONS */
+
+.button-green {
+	cursor:pointer;
+	padding:2%;
+	border-radius:5px;
+	text-align:center;
+	display:block; /* block in case of <a>, <button>, ... */
+	background-color:rgb(76, 209, 55);
+	color:#fefefe;
+	border:1px solid rgb(76, 209, 55); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+
+	transition:all 0.3s linear;
+}
+
+.button-green:hover {
+  background-color:#fefefe;
+  color:rgb(76, 209, 55);
+}
+
+
+.button-blue {
+	cursor:pointer;
+	padding:2%;
+	border-radius:5px;
+	text-align:center;
+	display:block; /* block in case of <a>, <button>, ... */
+	background-color:rgb(72, 126, 176);
+	color:#fefefe;
+	border:1px solid rgb(72, 126, 176); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+
+	transition:all 0.3s linear;
+}
+
+.button-blue:hover {
+  background-color:#fefefe;
+  color:rgb(72, 126, 176);
 }

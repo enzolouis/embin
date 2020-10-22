@@ -12,6 +12,12 @@ def developers(request):
 def login(request):
 	return render(request, "login.html")
 
+def sign_in(request):
+	return render(request, "sign-in.html")
+
+def sign_up(request):
+	return render(request, "sign-up.html")
+
 
 
 def _404_page_not_found_error(request, exception):

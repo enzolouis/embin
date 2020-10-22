@@ -1,0 +1,80 @@
+
+.div-signup {
+	position: absolute;
+	top: 30%;
+	left:50%;
+	-ms-transform: translateY(-30%);
+	transform: translateY(-30%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width:30%;
+
+	border-radius:5px;
+	background-color:#fefefe;
+	
+
+	box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+}
+
+.div-signup .top {
+	text-align:center;
+	background:rgb(72, 126, 176);
+	color:#fefefe;
+	padding:5%;
+}
+
+.div-signup .middle {
+	padding:5% 4% 8% 4%;
+}
+
+.div-signup .bottom {
+	width:100%;
+}
+
+.div-signup label {
+	display:block;
+	color:rgb(72, 126, 176);
+	font-weight:bold;
+	margin-bottom:5%;
+}
+
+.div-signup input {
+	display:block;
+	background-color:#f5f6f7;
+	color:rgb(72, 126, 176);
+	padding:5%;
+	width:100%;
+	border:1px solid rgb(72, 126, 176);
+	border-radius:5px;
+	transition:all 0.2s linear;
+}
+
+.div-signup input:hover {
+	background-color:rgb(72, 126, 176);
+	color:#fefefe;
+}
+
+/*
+.div-signup .align {
+	width:100px;
+	border-top:5px solid rgb(72, 126, 176);
+}
+*/
+
+.div-signup .username {
+	margin-bottom:10%;
+}
+
+
+
+/*
+.div-signup .already-login {
+	display:block;
+	margin-top:10%;
+	color:#e84118;
+	text-shadow:1px 2px 3px #e84118;
+}
+
+*/

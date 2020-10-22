@@ -22,6 +22,8 @@ urlpatterns = [
 	path('', views.home),
     # path('developers', views.developers),
     path('login', views.login),
+    path('login/sign-in', views.sign_in),
+    path('login/sign-up', views.sign_up),
 	path('bin/', include("applications.bin.urls")),
     path('admin/', admin.site.urls),
 ]
