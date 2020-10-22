@@ -2,24 +2,16 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 
-import pytz as timezone
-from datetime import datetime
 
 def home(request):
+	return render(request, "home.html")
 
-	france = datetime.now(tz=timezone.timezone("Europe/Paris")).strftime("%A, %d %B | %I:%M%p")
-	england = datetime.now(tz=timezone.timezone("Europe/London")).strftime("%A, %d %B | %I:%M%p")
-	germany = datetime.now(tz=timezone.timezone("Europe/Berlin")).strftime("%A, %d %B | %I:%M%p")
-	spain = datetime.now(tz=timezone.timezone("Europe/Madrid")).strftime("%A, %d %B | %I:%M%p")
+def developers(request):
+	return render(request, "developers.html")
 
-	timezones = [
-		{"country":"France", "date":france},
-		{"country":"England", "date":england},
-		{"country":"Germany", "date":germany},
-		{"country":"Spain", "date":spain},
-	]
+def login(request):
+	return render(request, "login.html")
 
-	return render(request, "home.html", {"timezones":timezones})
 
 
 def _404_page_not_found_error(request, exception):

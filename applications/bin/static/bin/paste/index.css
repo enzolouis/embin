@@ -96,15 +96,14 @@ div.title-flex {
 	align-items:center;
 	background-color:white;
 	color:#204ecf;
-	margin-top:2%;
-	padding:3%;
-	border-top:5px solid blue;
-	border-bottom:5px solid blue;
+	padding:2%;
+	border-bottom:5px solid #204ecf;
 	font-size:200%;
 }
 
 div.title-flex .title-child {
 	flex:0.5;
+	font-weight:900;
 }
 
 div.title-flex .result-found-number-child {
@@ -192,8 +191,8 @@ div.title-flex .input-child #show-all-button {
 /* CARD */
 
 #result-not-found {
+	position:absolute;
 	display:none;
-	text-align:center;
 	word-wrap: break-word;
   	white-space: pre-wrap;
 	overflow:auto;
@@ -214,8 +213,6 @@ button {
 
 .parent {
 	padding:2%;
-	margin:5% auto;
-	width:100%;
 	display:flex;
 	flex-flow:row wrap;
 	justify-content:center;
