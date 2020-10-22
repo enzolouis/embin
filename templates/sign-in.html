@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'login.css' %}" rel="stylesheet">
+	<title>ASFIX - Sign up</title>
+</head>
+<body>
+
+{% include 'basenav.html' %}
+
+<main>
+
+<form class="div-sign div-signin">
+
+	<h2 class="top">
+		SIGN IN
+	</h2>
+
+	<div class="middle">
+		<div class="username">
+			<label>Username</label>
+			<input name="username" placeholder="username">
+		</div>
+
+		<div class="password">
+			<label>Password</label>
+			<input name="password" type="password" placeholder="password">
+		</div>
+	</div>
+
+	<button class="button-green bottom">
+		SUBMIT
+	</button>
+
+</form>
+
+</main>
+
+</body>
+</html>
+
+<!--<div class="align"></div>
+
+	<a class="already-login" href="../login/sign-in">You already have an account ?</a>-->

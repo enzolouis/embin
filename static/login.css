@@ -44,3 +44,129 @@
 .div-login a:hover:before {
 	content:"←  ";
 }
+
+
+
+
+/* sign pages : sign-up.html AND sign-in.html */
+
+.div-sign {
+	position: absolute;
+	top: 30%;
+	left:50%;
+	-ms-transform: translateY(-30%);
+	transform: translateY(-30%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	width:30%;
+
+	border-radius:5px;
+	background-color:#fefefe;
+}
+
+.div-sign .top {
+	text-align:center;
+	color:#fefefe;
+	padding:5%;
+}
+
+.div-sign .middle {
+	padding:5% 4% 8% 4%;
+}
+
+.div-sign .bottom {
+	width:100%;
+}
+
+.div-sign label {
+	display:block;
+	font-weight:bold;
+	margin-bottom:5%;
+}
+
+.div-sign input {
+	display:block;
+	background-color:#f5f6f7;
+	padding:5%;
+	width:100%;
+	border-radius:5px;
+	transition:all 0.2s linear;
+}
+
+.div-sign input:hover {
+	color:#fefefe;
+}
+
+/*
+.div-sign .already-login {
+	display:block;
+	margin-top:10%;
+	color:#e84118;
+	text-shadow:1px 2px 3px #e84118;
+}
+*/
+
+.div-sign .username {
+	margin-bottom:10%;
+}
+
+
+/*
+.div-signup .align {
+	width:100px;
+	border-top:5px solid rgb(72, 126, 176);
+}
+*/
+
+
+/* sign-up page : sign-up.html */
+
+
+.div-signup {
+	box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
+}
+
+.div-signup .top {
+	background:rgb(72, 126, 176);
+}
+
+.div-signup label {
+	color:rgb(72, 126, 176);
+}
+
+.div-signup input {
+	color:rgb(72, 126, 176);
+	border:1px solid rgb(72, 126, 176);
+}
+
+.div-signup input:hover {
+	background-color:rgb(72, 126, 176);
+}
+
+
+/* sign-in page : sign-in.html */
+
+.div-signin {
+	box-shadow: 0px 0px 10px 2px rgba(76, 209, 55,0.65);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(76, 209, 55, 0.65);
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(76, 209, 55, 0.65);
+}
+
+.div-signin .top {
+	background:rgb(76, 209, 55);
+}
+
+.div-signin label {
+	color:rgb(76, 209, 55);
+}
+
+.div-signin input {
+	color:rgb(76, 209, 55);
+	border:1px solid rgb(76, 209, 55);
+}
+
+.div-signin input:hover {
+	background-color:rgb(76, 209, 55);
+}
