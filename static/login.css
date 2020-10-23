@@ -50,6 +50,10 @@
 
 /* sign pages : sign-up.html AND sign-in.html */
 
+.link-in-button {
+	color:inherit;
+}
+
 body.sign {
 	padding-bottom:50%;
 }
@@ -130,8 +134,6 @@ body.sign {
 	/* background already none */
 }
 
-
-
 .div-sign .username {
 	margin-bottom:10%;
 }
@@ -139,21 +141,13 @@ body.sign {
 
 .div-sign .already-login {
 	display:block;
-	margin-top:10%;
 	padding:4%;
-	color:#e84118;
-	text-shadow:1px 2px 3px #e84118;
 }
 
-
-
-
-/*
-.div-signup .align {
-	width:100px;
-	border-top:5px solid rgb(72, 126, 176);
+.div-sign .separator {
+	border-top:3px solid #afbbc6;
+	margin:10% 5% 5% 5%;
 }
-*/
 
 
 /* sign-up page : sign-up.html */
@@ -181,6 +175,11 @@ body.sign {
 .div-signup div.input:hover {
 	background-color:rgb(72, 126, 176);
 }
+
+.div-signup .already-login {
+	color:rgb(72, 126, 176);
+}
+
 
 
 /* sign-in page : sign-in.html */
@@ -212,4 +211,8 @@ body.sign {
 /* div.sign */
 .div-signin .is_valid {
 	color:#e84118;
+}
+
+.div-signin .already-login {
+	color:rgb(76, 209, 55);
 }

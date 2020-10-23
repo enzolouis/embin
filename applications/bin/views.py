@@ -36,7 +36,8 @@ def paste_create(request):
     """
 
     if request.method == "POST":
-        res = (request.POST["title"], request.POST["content"], ' '.join(dict(request.POST)["tags"]), request.POST["img"])
+        res = (request.POST["title"], request.POST["content"], request.POST["img"])
+        print(f"{res = }")
         id_ = Paste.create_paste(*res)
         return redirect(f"./{id_}")
     else:

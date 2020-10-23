@@ -142,7 +142,9 @@ header.navbar-parent {
 
 
 
-
+.link-in-button {
+	color:inherit;
+}
 
 
 /* BUTTON CONVENTIONS */
@@ -165,6 +167,24 @@ header.navbar-parent {
   color:rgb(76, 209, 55);
 }
 
+.button-green-hover {
+	cursor:pointer;
+	padding:2%;
+	border-radius:5px;
+	text-align:center;
+	display:block; /* block in case of <a>, <button>, ... */
+	background-color:#fefefe;
+	color:rgb(76, 209, 55);
+	border:1px solid rgb(76, 209, 55); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+
+	transition:all 0.3s linear;
+}
+
+.button-green-hover:hover {
+  background-color:rgb(76, 209, 55);
+  color:#fefefe;
+}
+
 
 .button-blue {
 	cursor:pointer;
@@ -182,4 +202,22 @@ header.navbar-parent {
 .button-blue:hover {
   background-color:#fefefe;
   color:rgb(72, 126, 176);
+}
+
+.button-blue-hover {
+	cursor:pointer;
+	padding:2%;
+	border-radius:5px;
+	text-align:center;
+	display:block; /* block in case of <a>, <button>, ... */
+	background-color:#fefefe;
+	color:rgb(72, 126, 176);
+	border:1px solid rgb(72, 126, 176); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+
+	transition:all 0.3s linear;
+}
+
+.button-blue-hover:hover {
+  background-color:rgb(72, 126, 176);
+  color:#fefefe;
 }

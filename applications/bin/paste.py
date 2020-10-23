@@ -44,14 +44,13 @@ class Paste:
 
         list_of_tuple_to_dict = [
             {
-                'id':x[0], 
+                'id':x[0],
                 'title':x[1],
                 'content':x[2],
-                'tags':x[3],
-                "img":x[4],
-                'created_at':datetime.fromtimestamp(x[5]).strftime("%d %h. %Y, at %H:%M"),
-                "views":x[6],
-                'there_is_ago':get_there_is_format(datetime.fromtimestamp(x[5])),
+                "img":x[3],
+                'created_at':datetime.fromtimestamp(x[4]).strftime("%d %h. %Y, at %H:%M"),
+                "views":x[5],
+                'there_is_ago':get_there_is_format(datetime.fromtimestamp(x[4])),
             } for x in result
         ]
 
@@ -95,10 +94,9 @@ class Paste:
             "id":result[0],
             "title":result[1],
             "content":result[2],
-            "tags":result[3],
-            "img":result[4],
-            "created_at":datetime.fromtimestamp(result[5]).strftime("%d %h. %Y, at %H:%M"),
-            "views":result[6]
+            "img":result[3],
+            "created_at":datetime.fromtimestamp(result[4]).strftime("%d %h. %Y, at %H:%M"),
+            "views":result[5]
         }
 
         cursor.close()
@@ -108,13 +106,12 @@ class Paste:
             
 
     @classmethod
-    def create_paste(cls, title, content, tags, img):
+    def create_paste(cls, title, content, img):
         """
         CREATE TABLE "nvm_paste" (
             "id"    INTEGER NOT NULL UNIQUE,
             "title" TEXT,
             "body"  TEXT,
-            "tags"  TEXT,
             "timestamp"    INTEGER NOT NULL,
             "img"   TEXT,
             PRIMARY KEY("id" AUTOINCREMENT)
@@ -123,7 +120,7 @@ class Paste:
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
 
-        cursor.execute("INSERT INTO nvm_paste VALUES(?, ?, ?, ?, ?, ?, ?)", (cursor.lastrowid, title, content, tags, img, int(time()), 0))
+        cursor.execute("INSERT INTO nvm_paste VALUES(?, ?, ?, ?, ?, ?)", (cursor.lastrowid, title, content, img, int(time()), 0))
         con.commit()
 
         cursor.close()

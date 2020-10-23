@@ -62,25 +62,7 @@
 		
 		<input required id="show-image-input" class="img_link" name="img" placeholder="image link">
 
-		<section class="parts">
-
-			<h1 class="title">
-				CONTENU
-			</h1>
-			
-			<textarea required placeholder="write your paste..." name="content" rows="50" columns="50"></textarea>
-
-		</section>
-
-		<section class="parts">
-			<h1 class="title">
-				TAGS
-			</h1>
-
-			<div id="tags">
-				<button type="button" onclick="newTag()">+</button>
-			</div>
-		</section>
+		<textarea required placeholder="write your paste..." name="content" rows="50" columns="50"></textarea>
 
 		<input class="submit" type="submit" value="✓">
 
@@ -96,11 +78,6 @@
 
 
 <script>
-	function newTag() {
-		let tags = document.getElementById("tags");
-		tags.innerHTML = `<input class='tags-input' name='tags' placeholder='tag'></input>` + tags.innerHTML
-	}
-
 	let show = document.getElementById("show-image-input")
 
 	show.addEventListener("focusout", function() {
