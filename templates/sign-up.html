@@ -5,14 +5,18 @@
 	<link href="{% static 'styles.css' %}" rel="stylesheet">
 	<link href="{% static 'login.css' %}" rel="stylesheet">
 	<title>ASFIX - Sign up</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 </head>
-<body>
+
+<body class="sign">
 
 {% include 'basenav.html' %}
 
 <main>
 
-<form class="div-sign div-signup">
+<form method="post" class="div-sign div-signup">
+	{% csrf_token %}
 
 	<h2 class="top">
 		SIGN UP
@@ -21,22 +25,38 @@
 	<div class="middle">
 		<div class="username">
 			<label>Username</label>
-			<input name="username" placeholder="Loyden123">
+			<div class="input">
+				<input required name="username" placeholder="Loyden123">
+				<button type="button">
+					<i class="fas fa-user"></i>
+				</button>
+			</div>
 		</div>
 
 		<div class="password">
 			<label>Password</label>
-			<input name="password" type="password" placeholder="Xhahd3Hj3jK21NDp">
+			<div class="input">
+				<input id="password" required name="password" type="password" placeholder="Xhahd3Hj3jK21NDp">
+				<button onclick="showPassword()" type="button">
+					<i id="password-show" class="fas fa-eye-slash"></i>
+				</button>
+			</div>
 		</div>
 	</div>
 
-	<button class="button-blue bottom">
+	<button type="submit" class="button-blue bottom">
 		SUBMIT
 	</button>
 
+	<a class="already-login" href="sign-in">Already have an account ?</a>
+
 </form>
 
+
+
 </main>
+
+<script src="{% static 'login.js' %}"></script>
 
 </body>
 </html>

@@ -1,6 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 
 from django.shortcuts import render
+
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 
 def home(request):
@@ -12,8 +15,35 @@ def developers(request):
 def login(request):
 	return render(request, "login.html")
 
+# https://docs.djangoproject.com/fr/3.1/topics/auth/default/#django.contrib.auth.authenticate
 def sign_in(request):
-	return render(request, "sign-in.html")
+	if request.method == "GET":
+		return render(request, "sign-in.html")
+	else:
+
+		username = request.POST["username"]
+		password = request.POST["password"]
+
+		# john : raise
+		# mityno : ok
+		# ember : ok
+
+		try:
+			user = User.objects.get(username=username)
+		except User.DoesNotExist:
+			username_is_valid = "Username is not valid"
+			print(f"{username} DOES NOT EXIST")
+		except Exception as e:
+			print(f"[404] - {type(e)}")
+			raise Http404("oof")
+		else:
+			username_is_valid = ""
+
+
+
+
+		return render(request, "sign-in.html", {'username_is_valid':username_is_valid, 'password_is_valid':'Password is not valid?'})
+
 
 def sign_up(request):
 	return render(request, "sign-up.html")

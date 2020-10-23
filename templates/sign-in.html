@@ -5,14 +5,16 @@
 	<link href="{% static 'styles.css' %}" rel="stylesheet">
 	<link href="{% static 'login.css' %}" rel="stylesheet">
 	<title>ASFIX - Sign up</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
-<body>
+<body class="sign">
 
 {% include 'basenav.html' %}
 
 <main>
 
-<form class="div-sign div-signin">
+<form method="post" class="div-sign div-signin">
+	{% csrf_token %}
 
 	<h2 class="top">
 		SIGN IN
@@ -21,22 +23,43 @@
 	<div class="middle">
 		<div class="username">
 			<label>Username</label>
-			<input name="username" placeholder="username">
+			<div class="input">
+				<input required name="username" placeholder="username">
+				<button type="button">
+					<i class="fas fa-user"></i>
+				</button>
+			</div>
+
+			<span class="is_valid">{{ username_is_valid }}</span> <!-- IF it is get, password_is_valid just not work and span is empty -->
 		</div>
 
 		<div class="password">
 			<label>Password</label>
-			<input name="password" type="password" placeholder="password">
+
+			<div class="input">
+				<input required name="password" type="password" placeholder="password">
+				<button type="button">
+					<i class="fas fa-eye-slash"></i>
+				</button>
+			</div>
+			
+			<span class="is_valid">{{ password_is_valid }}<span> <!-- IF it is get, password_is_valid just not work and span is empty -->
 		</div>
 	</div>
 
-	<button class="button-green bottom">
+	<button type="submit" class="button-green bottom">
 		SUBMIT
 	</button>
+
+	<a class="already-login" href="sign-up">Already have an account ?</a>
 
 </form>
 
 </main>
+
+
+<script src="{% static 'login.js' %}"></script>
+
 
 </body>
 </html>

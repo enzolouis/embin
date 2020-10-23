@@ -90,6 +90,8 @@
 
 /* TITRE - PASTE */
 
+
+
 div.title-flex {
 	display:flex;
 	flex-flow:row wrap;
@@ -130,6 +132,34 @@ div.title-flex .show-all-paste-child button:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 div.title-flex .input-child {
 	flex:0.6;
 }
@@ -147,11 +177,16 @@ div.title-flex .input-child #search-input {
 	text-align:left;
 	font-weight:800;
 	transition:all 0.3s linear;
+	border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 
 div.title-flex .input-child #search-input:hover {
 	background-color:#204ecf;
+	border:1px solid #204ecf;
 	color:white;
 	opacity:0.8;
 }
@@ -163,26 +198,39 @@ div.title-flex .input-child #search-input::placeholder {
 
 div.title-flex .input-child button {
 	color:white;
-	background-color:#204ecf; /* #e84118 */
-	cursor:pointer;
-	transition:background-color 0.3s linear;
-	border:1px solid #CFD7E6;
+    background-color:#204ecf; /* #e84118 */
+    cursor:pointer;
+    transition: all 0.3s linear;
+    border:1px solid #204ecf;
 }
 
 div.title-flex .input-child button:hover {
-	background-color:#00000f;
+	background-color:#1d1fa3;
+    border:1px solid #112f83;
+}
+
+div.title-flex .input-child button:active {
+	background-color:#204ecf;
+	border:1px solid #204ecf;
 }
 
 div.title-flex .input-child #search-button {
 	width:20%;
 	padding:5%;
 	border-left:none; /* fusionner avec l'input à gauche */
+
+  	border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 div.title-flex .input-child #show-all-button {
 	width:100%;
 	padding:4%;
 	margin-bottom:3%;
+
+    border-radius: 10px;
 }
 
 /* END */
@@ -240,7 +288,7 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
 }
 
 .child:hover{
-	transform:scale(0.8);
+	transform:scale(0.9);
 	z-index:10000;
 	opacity:1;
 	/* border-bottom:10px solid #4cd137; */

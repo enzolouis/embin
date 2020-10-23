@@ -58,10 +58,6 @@ a {
 	text-decoration:none;
 }
 
-::selection {
-	color:#e84118;
-	background-color:orange;
-}
 
 main {
 	background-color:#f5f6f7;
