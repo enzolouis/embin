@@ -31,7 +31,11 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"] # ALLOWED_HOSTS = [] -> CommandError:
 
 # Application definition
 
+
+# FOR COOKIES CONSENTS : https://django-cookie-consent.readthedocs.io/en/latest/configuration.html
 INSTALLED_APPS = [
+    # 'cookie_consent', # django-cookie-consent module
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,7 +65,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request', # set by default (django-admin createproject), but usefull for django-cookie-consent extern module
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],

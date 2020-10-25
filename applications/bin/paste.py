@@ -22,6 +22,7 @@ class Paste:
             stats = {
                 "ans":datetime.now().year - created_at.year,
                 "mois":datetime.now().month - created_at.month,
+                "semaines":datetime.now().isocalendar()[1] - created_at.isocalendar()[1], # isocalendar | 0 : year, 1 : week, 2 : weekday
                 "jours":datetime.now().day - created_at.day,
                 "heures":datetime.now().hour - created_at.hour,
                 "minutes":datetime.now().minute - created_at.minute,

@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -28,7 +28,7 @@ def login_(request): # DON'T OVERWRITE auth.login from django
 def sign_in(request):
 	print("SIGN IN")
 	if request.user.is_authenticated:
-		return profile(request)
+		return redirect("profile")
 
 	if request.method == "GET":
 		print("SIGN IN : GET")
@@ -75,7 +75,7 @@ username_matches = string.ascii_letters + string.digits + "_@+.-"
 
 def sign_up(request):
 	if request.user.is_authenticated:
-		return profile(request)
+		return redirect("profile")
 
 	if request.method == "GET":
 		return render(request, "sign-up.html")
@@ -111,7 +111,7 @@ def sign_up(request):
 
 def profile(request):
 	if not request.user.is_authenticated:
-		return sign_in(request)
+		return redirect("sign-in")
 
 	if request.method == "GET":
 		print(dir(request.user))
@@ -120,7 +120,7 @@ def profile(request):
 		return render(request, "profile.html")
 	else:
 		logout(request)
-		return render(request, "sign-in.html") #redirect !
+		return redirect("login/sign-in") #redirect !
 
 def _404_page_not_found_error(request, exception):
 	try:
