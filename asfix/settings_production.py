@@ -9,7 +9,7 @@ TEMPLATE_DEBUG = False
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-# https://pypi.org/project/dj-database-url/
+# https://pypi.org/project/dj-database-url
 DATABASES["default"] = dj_database_url.config()
 
 ALLOWED_HOSTS = ["asfix.herokuapp.com"]
