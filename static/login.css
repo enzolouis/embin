@@ -87,7 +87,7 @@ body.sign {
 
 .div-sign .bottom {
 	margin:0 auto;
-	margin-bottom:3%;
+	margin-top:-5%;
 	width:80%;
 }
 
@@ -107,6 +107,15 @@ body.sign {
 
 .div-sign div.input:hover {
 	color:#fefefe;
+}
+
+.div-sign div.error {
+	padding:5%;
+	color:#e84118;
+	background-color:#fefefe;
+	border:1px solid #e84118;
+	border-radius:5px;
+	margin-bottom:3%;
 }
 
 .div-sign div.input input {
@@ -134,7 +143,7 @@ body.sign {
 	/* background already none */
 }
 
-.div-sign .username {
+.div-sign .parts {
 	margin-bottom:10%;
 }
 
@@ -148,6 +157,25 @@ body.sign {
 	border-top:3px solid #afbbc6;
 	margin:10% 5% 5% 5%;
 }
+
+.div-sign div.sign-succeed svg {
+	margin-top:5%;
+	margin-bottom:5%;
+	width:100%;
+	text-align:center;
+	font-size:250px;
+}
+
+.div-sign div.sign-succeed p {
+	text-align:center;
+	margin-bottom:5%;
+	font-weight:bold;
+}
+
+.div-sign .is_valid {
+	color:#e84118;
+}
+
 
 
 /* sign-up page : sign-up.html */
@@ -180,6 +208,10 @@ body.sign {
 	color:rgb(72, 126, 176);
 }
 
+.div-signup div.sign-succeed {
+	color:rgb(72, 126, 176);
+}
+
 
 
 /* sign-in page : sign-in.html */
@@ -207,12 +239,10 @@ body.sign {
 	background-color:rgb(76, 209, 55);
 }
 
-
-/* div.sign */
-.div-signin .is_valid {
-	color:#e84118;
+.div-signin .already-login {
+	color:rgb(76, 209, 55);
 }
 
-.div-signin .already-login {
+.div-signin div.sign-succeed {
 	color:rgb(76, 209, 55);
 }

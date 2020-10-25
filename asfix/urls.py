@@ -21,11 +21,14 @@ from . import views
 urlpatterns = [
 	path('', views.home),
     # path('developers', views.developers),
-    path('login', views.login),
+    path('login', views.login_),
     path('login/sign-in', views.sign_in),
     path('login/sign-up', views.sign_up),
+    path("profile", views.profile),
 	path('bin/', include("applications.bin.urls")),
     path('admin/', admin.site.urls),
+
+    # path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 handler400 = "asfix.views._400_error"

@@ -1,6 +1,6 @@
-function showPassword() {
+function showPassword(input_id) {
 	let eyesClasses = document.activeElement.children[0].classList
-	let inputPassword = document.getElementById("password")
+	let inputPassword = document.getElementById(input_id)
 
 
 	// si l'input est de type password et l'oeil est fermé

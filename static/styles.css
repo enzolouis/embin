@@ -221,3 +221,22 @@ header.navbar-parent {
   background-color:rgb(72, 126, 176);
   color:#fefefe;
 }
+
+
+.button-red {
+	cursor:pointer;
+	padding:2%;
+	border-radius:5px;
+	text-align:center;
+	display:block; /* block in case of <a>, <button>, ... */
+	background-color:#e84118;
+	color:#fefefe;
+	border:1px solid #e84118; /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+
+	transition:all 0.3s linear;
+}
+
+.button-red:hover {
+  background-color:#fefefe;
+  color:#e84118;
+}

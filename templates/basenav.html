@@ -27,9 +27,15 @@
 		DEVELOPERS
 	</a>
 
+	{% if user.is_authenticated %}
+	<a href="/profile" class="navbar-elt">
+		PROFILE
+	</a>
+	{% else %}
 	<a href="/login" class="navbar-elt">
 		LOGIN
 	</a>
+	{% endif %}
 
 </header>
 
