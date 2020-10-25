@@ -12,6 +12,7 @@ from django.contrib.auth.forms import AuthenticationForm
 import string
 
 def home(request):
+	print("--> HOME")
 	return render(request, "home.html")
 
 def developers(request):
@@ -25,15 +26,19 @@ def login_(request): # DON'T OVERWRITE auth.login from django
 # trop bien
 # https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.get_user
 def sign_in(request):
+	print("SIGN IN")
 	if request.user.is_authenticated:
 		return profile(request)
 
 	if request.method == "GET":
+		print("SIGN IN : GET")
 		return render(request, "sign-in.html", {'form':AuthenticationForm})
 	else:
 
 		username = request.POST["username"]
 		password = request.POST["password"]
+
+		print("--> SIGN IN : POST")
 
 		# john : raise
 		# mityno : ok
@@ -44,17 +49,26 @@ def sign_in(request):
 		except User.DoesNotExist:
 			print(f"{username} DOES NOT EXIST")
 			return render(request, "sign-in.html", {"username_is_valid":"Username does not exist"})
-			
+		
+
+		print("--> SIGN IN : POST 2")
+
 		# if no error, check if user correspond to password
 
 		if not user.check_password(password):
 			return render(request, "sign-in.html", {"password_is_valid":"Password is not valid"})
 		
+
+		print("--> SIGN IN : POST 3")
+
 		user = authenticate(request, username=username, password=password) # se renseigner
 		if user is not None:
+			print("--> SIGN IN : POST 4 : LOGIN")
+
 			login(request, user)
 			return render(request, "sign-in.html", {"sign_succeed":True, "sign_succeed_username":username})
 		else:
+			print("--> SIGN IN : POST 4 : LOGIN ERROR")
 			return render(request, "sign-in.html", {"unknown_error":True})
 
 username_matches = string.ascii_letters + string.digits + "_@+.-"
