@@ -1,9 +1,12 @@
+<!-- impossible d'accéder à cette page sans être login, voir asfix.views -->
 <!DOCTYPE html>
 <html>
 <head>
 	{% load static %}
+	{% include 'head.html' %}
 	<title>ASFIX - Profile</title>
-	<link href="{% static 'styles.css' %}" rel="stylesheet">
+	<link href="{% static 'profile.css' %}" rel="stylesheet">
+	
 </head>
 <body>
 
@@ -11,8 +14,63 @@
 
 <main>
 
-> {{ user.username }}
+<div class="profile">
 
+	<div class="username">
+		<div class="profile-picture">
+			<i class="fas fa-user"></i>
+		</div>
+		<p class="username">{{ user.username }}</p>
+		<ul class="roles">
+			<li style="color:green"><i class="fas fa-user"></i> Member</li>
+			<li style="color:{% if user.is_staff %}green{% else %}red{% endif %}"><i class="fas fa-user-plus"></i> Staff</li>
+			<li style="color:{% if user.is_superuser %}green{% else %}red{% endif %}"><i class="fas fa-user-check"></i> Administrator</li>
+		</ul>
+	</div>
+
+
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<pre style="background-color:#00005f;color:white;padding:2%;">
+> username   -> {{ user.username }}
+> check   -> {{ user.check }}
+> clean   -> {{ user.clean }}
+> clean_fields   -> {{ user.clean_fields }}
+> date_error_message   -> {{ user.date_error_message }}
+> date_joined   -> {{ user.date_joined }}
+> full_clean   -> {{ user.full_clean }}
+> get_all_permissions   -> {{ user.get_all_permissions }}
+> get_deferred_fields   -> {{ user.get_deferred_fields }}
+> get_next_by_date_joined   -> {{ user.get_next_by_date_joined }}
+> get_previous_by_date_joined   -> {{ user.get_previous_by_date_joined }}
+> get_user_permissions   -> {{ user.get_user_permissions }}
+> get_username   -> {{ user.get_username }}
+> groups   -> {{ user.groups }}
+> has_module_perms   -> {{ user.has_module_perms }}
+> has_perm   -> {{ user.has_perm }}
+> has_perms   -> {{ user.has_perms }}
+> has_usable_password   -> {{ user.has_usable_password }}
+> id   -> {{ user.id }}
+> is_active   -> {{ user.is_active }}
+> is_anonymous   -> {{ user.is_anonymous }}
+> is_authenticated   -> {{ user.is_authenticated }}
+> is_staff   -> {{ user.is_staff }}
+> is_superuser   -> {{ user.is_superuser }}
+> last_login   -> {{ user.last_login }}
+> logentry_set   -> {{ user.logentry_set }}
+> natural_key   -> {{ user.natural_key }}
+> normalize_username   -> {{ user.normalize_username }}
+> pk   -> {{ user.pk }}
+> serializable_value   -> {{ user.serializable_value }}
+> unique_error_message   -> {{ user.unique_error_message }}
+> user_permissions   -> {{ user.user_permissions }}
+> username   -> {{ user.username }}
+> username_validator   -> {{ user.username_validator }}
+> validate_unique   -> {{ user.validate_unique }}
+</pre>
 <form method="POST">
 	{% csrf_token %}
 <button class="button-red">
@@ -25,8 +83,11 @@
 <style>
 	.button-red {
 		position:fixed;
-		bottom:5px;
-		right:5px;
+		width:100%;
+		bottom:0;
+		border-bottom-left-radius:0;
+		border-bottom-right-radius:0;
+		padding:1%;
 	}
 </style>
 

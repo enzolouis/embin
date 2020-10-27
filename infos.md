@@ -22,3 +22,8 @@
 click ?
 itsdangerous ?
 MarkupSafe ?
+
+
+# TO DO
+
+supprimer l'applications project_tags, déplacer son dossier template_tags dans applications/bin

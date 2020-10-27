@@ -1,19 +1,48 @@
 {% load static %}
-<button onclick="deployNavBar()" id="navbar-deploy">
-<img src="{% static 'hamburger.png' %}">
-</button>
+
+<div class="main-header">
+	<h1 class="title">ASFIX</h1>
+	<div class="logo">
+		<img src="https://cdn.discordapp.com/attachments/710978082902638594/770663601647255582/1603810911559.png">
+	</div>
+	<div class="logo">
+		<i class="fab fa-github"></i>
+	</div>
+
+	{% if user.is_authenticated %}
+	<div class="logo">
+		<a href="/profile"><i class="fas fa-user"></i></a>
+		{% if user.is_staff %}
+		<a href="/profile"><i class="fas fa-user-plus"></i></a>
+		{% endif %}
+		{% if user.is_superuser %}
+		<a href="/admin"><i class="fas fa-user-check"></i></a>
+		{% endif %}
+	</div>
+	{% else %}
+	<div class="logo">
+		<a href="/login"><i class="fas fa-user-alt-slash"></i></a>
+	</div>
+	{% endif %}
+
+	<div class="logo">
+		<button onclick="deployNavBar()" id="navbar-deploy"><i class="fas fa-bars"></i></button>
+	</div>
+</div>
+
+<div class="separator-1">
+	<div class="separator-header"></div>
+</div>
 
 <header id="navbar" class="navbar-parent">
 	<!--<a href="#" class="navbar-first-elt-logo">
 		<img 
-			src="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png" 
-			width="50"
-			> 
+			src="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png" > 
 	</a>-->
 
-	<a href="#" class="navbar-first-elt">
+	<!--<a href="/" class="navbar-first-elt">
 		ASFIX
-	</a>
+	</a>-->
 
 	<a href="/" class="navbar-elt">
 		HOME
@@ -21,10 +50,6 @@
 
 	<a href="/bin/paste" class="navbar-elt">
 		PASTE
-	</a>
-
-	<a href="/developers" class="navbar-elt">
-		DEVELOPERS
 	</a>
 
 	{% if user.is_authenticated %}
@@ -37,23 +62,26 @@
 	</a>
 	{% endif %}
 
+	
+
 </header>
 
 <script>
 
-function deployNavBar() {
-	console.log("oof")
-	let nav = document.getElementById("navbar");
-	let navDeploy = document.getElementById("navbar-deploy");
-	nav.style.display = "flex";
-	navDeploy.onclick = undeployNavBar;
-}
-
 function undeployNavBar() {
 	let nav = document.getElementById("navbar");
 	let navDeploy = document.getElementById("navbar-deploy");
-	nav.style.display = "none";
+	nav.style.display = "flex";
 	navDeploy.onclick = deployNavBar;
 }
+
+function deployNavBar() {
+	let nav = document.getElementById("navbar");
+	let navDeploy = document.getElementById("navbar-deploy");
+	nav.style.display = "none";
+	navDeploy.onclick = undeployNavBar;
+}
+
+
 
 </script>

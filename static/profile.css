@@ -1,0 +1,48 @@
+
+div.profile {
+	margin:5% auto 5% 20%;
+	background:#fefefe;
+	box-shadow: 0px 0px 5px 2px #e84118;
+	-moz-box-shadow: 0px 0px 5px 2px #e84118;
+	-webkit-box-shadow: 0px 0px 5px 2px #e84118;
+	border:1px solid #e84118;
+	border-right:none;
+	padding:5%;
+}
+
+div.username {
+	display:flex;
+	align-items:center;
+	flex-flow:row wrap;
+}
+
+div.username .profile-picture {
+	display:inline-block;
+	border:3px solid rgb(76, 209, 55);
+	border-top:none;
+	border-bottom:none;
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+div.username .profile-picture svg {
+	color:rgb(76, 209, 55);
+	font-size:200px;
+}
+
+div.username p.username {
+	font-size:300%;
+	margin-left:5%;
+	flex:0.1;
+	display:inline;
+}
+
+div.username .roles {
+	font-size:200%;
+}
+
+div.username .roles li {
+	margin-bottom:10%;
+}
