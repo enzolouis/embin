@@ -96,11 +96,13 @@ div.title-flex {
 	display:flex;
 	flex-flow:row wrap;
 	align-items:center;
-	background-color:white;
+	background-color:inherit;
 	color:#204ecf;
 	padding:2%;
-	border-bottom:5px solid #204ecf;
+	/* border-bottom:5px solid #204ecf; */
 	font-size:200%;
+	margin: 0 auto;
+	width:80%;
 }
 
 div.title-flex .title-child {

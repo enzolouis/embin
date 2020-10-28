@@ -30,11 +30,16 @@
 	</div>
 </div>
 
+
+
+
 <div class="separator-1">
-	<div class="separator-header"></div>
+	<div></div>
 </div>
 
+
 <header id="navbar" class="navbar-parent">
+	<div class="header-content" style="width:80%;display:flex;flex-flow:row wrap;margin: auto">
 	<!--<a href="#" class="navbar-first-elt-logo">
 		<img 
 			src="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png" > 
@@ -62,7 +67,14 @@
 	</a>
 	{% endif %}
 
-	
+	<div id="button-top" class="button-top">
+		<i onclick="topFunction()" class="fas fa-arrow-circle-up"></i>
+	</div>
+</div>
+
+<div class="separator-2">
+	<div></div>
+</div>
 
 </header>
 
@@ -82,6 +94,18 @@ function deployNavBar() {
 	navDeploy.onclick = undeployNavBar;
 }
 
+function topFunction() {
+	document.body.scrollTop = 0
+	document.documentElement.scrollTop = 0
+}
 
+let topButton = document.getElementById("button-top");
 
+window.onscroll = function scrollFunction() {
+	if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+		topButton.style.display = "block";
+	} else {
+		topButton.style.display = "none";
+	}
+}
 </script>

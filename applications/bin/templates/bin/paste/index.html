@@ -11,7 +11,7 @@
 {% load to_str %}
 {% load range %}
 
-{% include 'basenav.html' %}
+{% include 'header.html' %}
 
 
 <main>
@@ -22,25 +22,31 @@
 	</button>
 </a>
 
-<div class="title-flex">
-	<div class="title-child">
-		PASTE - {{ pastes|length }}
-	</div>
+<div class="title-container" style="background-color: #fefefe;">
+	<div class="title-flex">
+		<div class="title-child">
+			PASTE - {{ pastes|length }}
+		</div>
 
-	<div class="result-found-number-child" id="paste-result-number">
-		
-	</div>
+		<div class="result-found-number-child" id="paste-result-number">
+			
+		</div>
 
-	{% csrf_token %} <!-- tags django à mettre pour tous les formulaires pour éviter les erreur CSRF lors du post,
-	ici ce n'est pas vraiment un <form> mais on au clic du bouton 'search-button', on fait un requête ajax avec jquerry.
-	On a d'ailleurs besoin lors de cette requête avec jquerry d'une fonction de vérification CSRF, ainsi donc d'une fonction 
-	getCookie, la fonction getCookie vient de la documentation de django à propos des requête ajax : <LIEN_A_METTRE> -->
-	<div class="input-child">
-		<button id="show-all-button" onclick="showAllPaste()">Tout afficher ?</button>
-		<input id="search-input" placeholder="Search paste"><button id="search-button">
-			<i class="fas fa-search"></i>
-		</button>
+		{% csrf_token %} <!-- tags django à mettre pour tous les formulaires pour éviter les erreur CSRF lors du post,
+		ici ce n'est pas vraiment un <form> mais on au clic du bouton 'search-button', on fait un requête ajax avec jquerry.
+		On a d'ailleurs besoin lors de cette requête avec jquerry d'une fonction de vérification CSRF, ainsi donc d'une fonction 
+		getCookie, la fonction getCookie vient de la documentation de django à propos des requête ajax : <LIEN_A_METTRE> -->
+		<div class="input-child">
+			<button id="show-all-button" onclick="showAllPaste()">Tout afficher ?</button>
+			<input id="search-input" placeholder="Search paste"><button id="search-button">
+				<i class="fas fa-search"></i>
+			</button>
+		</div>
 	</div>
+</div>
+
+<div class="separator-2" style="background-color: #fefefe;display: block;border-bottom: 2vh solid #fefefe;">
+  <div class="separator2-header" style="width: 70%;border: 1px solid #204ecf;margin: auto;"></div>
 </div>
 
 
