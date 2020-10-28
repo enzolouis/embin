@@ -44,7 +44,7 @@
 }
 
 .separator-1 div {
-	border-top:5px solid #204ecf;
+	border-top:2px solid #204ecf;
 	margin:0 auto;
 	width:70%;
 }
@@ -57,7 +57,8 @@
 .separator-2 div {
 	width:80%;
 	border:1px solid #204ecf;
-	margin:auto
+	margin:0 auto;
+	margin-bottom:1vh;
 }
 
 /*
@@ -75,6 +76,7 @@
 header.navbar-parent {
 	background-color:#fefefe;
 	/* border-bottom:5px solid #204ecf; */
+	/* padding-bottom:1vh; */
 }
 
 .navbar-first-elt {

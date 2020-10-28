@@ -72,7 +72,7 @@
 	</div>
 </div>
 
-<div class="separator-2">
+<div id="separator-move" class="separator-2">
 	<div></div>
 </div>
 
@@ -100,12 +100,31 @@ function topFunction() {
 }
 
 let topButton = document.getElementById("button-top");
+/*
+let diff = 0;
+let change = 0;
+const navbarAnimElement = document.getElementById("separator-move");
 
-window.onscroll = function scrollFunction() {
+window.onscroll = function () {
+	if(diff < document.documentElement.scrollTop) {
+		change++;
+		console.log("-> SCROLL : change += 1")
+	} else {
+		change--;
+		console.log("-> SCROLL : change -= 1")
+	}
+
+	console.log(change + "%")
+
+	navbarAnimElement.children[0].style.width = change + "%"
+	console.log("-> SCROLL : width = x%")
+
 	if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
 		topButton.style.display = "block";
 	} else {
 		topButton.style.display = "none";
 	}
+	diff = document.documentElement.scrollTop
 }
+*/
 </script>

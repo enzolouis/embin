@@ -103,6 +103,7 @@ div.title-flex {
 	font-size:200%;
 	margin: 0 auto;
 	width:80%;
+	margin-top:-1vh;
 }
 
 div.title-flex .title-child {
