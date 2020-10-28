@@ -100,6 +100,14 @@ function topFunction() {
 }
 
 let topButton = document.getElementById("button-top");
+
+window.onscroll = function () {
+	if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+		topButton.style.display = "block";
+	} else {
+		topButton.style.display = "none";
+	}
+}
 /*
 let diff = 0;
 let change = 0;

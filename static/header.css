@@ -151,11 +151,14 @@ header.navbar-parent {
 */
 
 .button-top {
-	cursor:pointer;
+	display:none;
 	padding:1%;
 	position:absolute;
 	right:0;
 	font-size:200%;
 	color:#204ecf;
+}
 
+.button-top svg {
+	cursor:pointer;
 }
