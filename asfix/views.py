@@ -114,13 +114,10 @@ def profile(request):
 		return redirect("sign-in")
 
 	if request.method == "GET":
-		print(dir(request.user))
-		print(request.user.last_login)
-		print(request.user.username)
 		return render(request, "profile.html")
 	else:
 		logout(request)
-		return redirect("login/sign-in") #redirect !
+		return redirect("login/sign-in")
 
 def _404_page_not_found_error(request, exception):
 	try:

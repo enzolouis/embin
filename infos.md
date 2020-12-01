@@ -23,7 +23,15 @@ click ?
 itsdangerous ?
 MarkupSafe ?
 
-
 # TO DO
 
 supprimer l'applications project_tags, déplacer son dossier template_tags dans applications/bin
+
+<style>
+	* {
+		color:white;
+	}
+	body {
+		background-color:#00000f;
+	}
+</style>

@@ -14,7 +14,6 @@ div.title {
 	width:100%;
 	background-color:#fefefe;
 	border-top:3px solid #204ecf;
-	border-bottom:3px solid #204ecf;
 
 	display:flex;
 	flex-flow:row wrap;
@@ -41,11 +40,22 @@ div.title p.number {
 }
 
 
-.content pre {
+.content pre.markdown {
 	padding:2%;
 	color:black;
 	word-wrap: break-word;
   	white-space: pre-wrap; /* or pre to bottom scroll bar */
-	font-family:"Verdana";
+	font-family:"Courier new" !important;
 	overflow: auto;
+}
+
+.content pre.markdown h1 {
+	padding-bottom:4%;
+	border-bottom:3px solid #7f8fa6;
+	margin-bottom:2%;
+}
+
+.content pre.markdown h2 {
+	padding-bottom:2%;
+	border-bottom:2px solid #718093;
 }

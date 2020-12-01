@@ -7,8 +7,8 @@ from time import time
 class Paste:
     FORMAT = "%Y-%m-%d %H:%M:%S"
 
-    @classmethod
-    def all(cls):
+    @staticmethod
+    def all():
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
 
@@ -57,8 +57,8 @@ class Paste:
 
         return list_of_tuple_to_dict
 
-    @classmethod
-    def find(cls, id_:int) -> dict:
+    @staticmethod
+    def find(id_:int) -> dict:
         """Find a paste in the database with its ID
 
         Used in the views create_paste in views.py
@@ -106,8 +106,8 @@ class Paste:
         return result
             
 
-    @classmethod
-    def create_paste(cls, title, content, img):
+    @staticmethod
+    def create_paste(title, content, img):
         """
         CREATE TABLE "nvm_paste" (
             "id"    INTEGER NOT NULL UNIQUE,
@@ -130,8 +130,8 @@ class Paste:
         return cursor.lastrowid
 
 
-    @classmethod
-    def get_last_paste(cls):
+    @staticmethod
+    def get_last_paste():
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
 
@@ -142,8 +142,8 @@ class Paste:
 
         return id_
 
-    @classmethod
-    def add_view(cls, id_):
+    @staticmethod
+    def add_view(id_):
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
 

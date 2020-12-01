@@ -1,9 +1,15 @@
 {% load static %}
+{% load split %}
 
-<div class="main-header">
-	<h1 class="title">ASFIX</h1>
+<header class="header">
+	<h1>A</h1>
+	<h1>S</h1>
+	<h1>F</h1>
+	<h1>I</h1>
+	<h1>X</h1>
+	<!--
 	<div class="logo">
-		<img src="https://cdn.discordapp.com/attachments/710978082902638594/770663601647255582/1603810911559.png">
+		
 	</div>
 	<div class="logo">
 		<i class="fab fa-github"></i>
@@ -25,10 +31,13 @@
 	</div>
 	{% endif %}
 
+
+
 	<div class="logo">
 		<button onclick="deployNavBar()" id="navbar-deploy"><i class="fas fa-bars"></i></button>
 	</div>
-</div>
+-->
+</header>
 
 
 
@@ -38,45 +47,93 @@
 </div>
 
 
-<header id="navbar" class="navbar-parent">
-	<div class="header-content" style="width:80%;display:flex;flex-flow:row wrap;margin: auto">
-	<!--<a href="#" class="navbar-first-elt-logo">
-		<img 
-			src="https://cdn.discordapp.com/attachments/710978082902638594/764661248029098004/1602379831460.png" > 
-	</a>-->
+<nav id="navbar" class="navbar-parent">
+	<div id="navbar-content" class="header-content" style="width:80%;display:flex;flex-flow:row wrap;margin: auto">
+		<a href="/" class="navbar-elt index-elt">
+			HOME
+		</a>
 
-	<!--<a href="/" class="navbar-first-elt">
-		ASFIX
-	</a>-->
+		<a href="/bin/paste" class="navbar-elt bin-paste-elt">
+			PASTE
+		</a>
 
-	<a href="/" class="navbar-elt">
-		HOME
-	</a>
+		{% if user.is_authenticated %}
+		<a href="/profile" class="navbar-elt profile-elt">
+			PROFILE
+		</a>
+		<div class="sign">
+			<a href="/login/sign-out" class="signin button-red">
+				LOGOUT
+			</a>
+		</div>
+		{% else %}
+		<a href="/login" class="navbar-elt login-elt">
+			LOGIN
+		</a>
+		<div class="sign">
+			<a href="/login/sign-in" class="signin button-green">
+				SIGN IN
+			</a>
+			<a href="/login/sign-up" class="signup button-blue">
+				SIGN UP
+			</a>
+		</div>
+		{% endif %}
 
-	<a href="/bin/paste" class="navbar-elt">
-		PASTE
-	</a>
+		<div id="button-top" class="button-top">
+			<i onclick="topFunction()" class="fas fa-arrow-circle-up"></i>
+		</div>
+	</div>
 
-	{% if user.is_authenticated %}
-	<a href="/profile" class="navbar-elt">
-		PROFILE
-	</a>
-	{% else %}
-	<a href="/login" class="navbar-elt">
-		LOGIN
-	</a>
-	{% endif %}
 
-	<div id="button-top" class="button-top">
-		<i onclick="topFunction()" class="fas fa-arrow-circle-up"></i>
+	<div id="separator-move" class="separator-2">
+		<div></div>
+	</div>
+
+</nav>
+
+
+<!-- LOADER -->
+<div class="loader">
+	<div class="inside">
+		
 	</div>
 </div>
 
-<div id="separator-move" class="separator-2">
-	<div></div>
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>jQuery(window).load(function(){ jQuery(".loader").fadeOut("200"); });</script>
 
-</header>
+<!-- -->
+
+
+<style>
+	{% if request.path|first_url == "login" %}
+	.login-elt {
+		background-color:#204ecf;
+		color:#fefefe;
+	}
+
+	{% elif request.path|first_url == "profile" %}
+
+	.profile-elt {
+		background-color:#204ecf;
+		color:#fefefe;
+	}
+
+	{% elif request.path|first_url == "bin" %}
+
+	.bin-paste-elt {
+		background-color:#204ecf;
+		color:#fefefe;
+	}
+
+	{% else %}
+	.index-elt {
+		background-color:#204ecf;
+		color:#fefefe;
+	}
+	{% endif %}
+</style>
 
 <script>
 

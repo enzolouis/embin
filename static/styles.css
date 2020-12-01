@@ -1,4 +1,6 @@
 @import 'header.css';
+@import 'footer.css';
+@import 'markdown_highlight.css';
 
 
 * {
@@ -17,10 +19,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
-body {
-	line-height: 1;
-}
-
 ol, ul, li {
 	list-style: none;
 }
@@ -29,20 +27,20 @@ pre {
 	margin:0;
 	word-wrap: break-word;
   	white-space: pre-wrap; /* or pre to bottom scroll bar */
-	font-family:"Verdana";
+	font-family:"Courier new";
 	overflow: auto;
 }
 
-html, body { /* don't have a white background when the page in empty or presque empty */
+html, body { /* don't have a white background when the page is empty */
 	/* height:100%; */
 }
 
-body { /* nav font is white */
+body {
 	font-family:"Verdana";
 	padding:0;
 	margin:0;
-	/* margin-top:10%; */
-	background:#eeeeee;
+	line-height: 1;
+	background:#333333;
 }
 
 
@@ -53,7 +51,7 @@ a {
 
 
 main {
-	background-color:#eeeeee;
+	background-color:#333333;
 }
 
 
@@ -88,16 +86,16 @@ main {
 	border-radius:5px;
 	text-align:center;
 	display:block; /* block in case of <a>, <button>, ... */
-	background-color:rgb(76, 209, 55);
+	background-color:rgb(68, 189, 50);
 	color:#fefefe;
-	border:1px solid rgb(76, 209, 55); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+	border:1px solid rgb(68, 189, 50); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
 
 	transition:all 0.3s linear;
 }
 
 .button-green:hover {
   background-color:#fefefe;
-  color:rgb(76, 209, 55);
+  color:rgb(68, 189, 50);
 }
 
 .button-green-hover {
@@ -107,14 +105,14 @@ main {
 	text-align:center;
 	display:block; /* block in case of <a>, <button>, ... */
 	background-color:#fefefe;
-	color:rgb(76, 209, 55);
-	border:1px solid rgb(76, 209, 55); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+	color:rgb(68, 189, 50);
+	border:1px solid rgb(68, 189, 50); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
 
 	transition:all 0.3s linear;
 }
 
 .button-green-hover:hover {
-  background-color:rgb(76, 209, 55);
+  background-color:rgb(68, 189, 50);
   color:#fefefe;
 }
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 
 import json
+import markdown as md
 
 from datetime import datetime
 
@@ -15,8 +16,9 @@ def paste_index(request):
 
 
 def paste_show(request, id_):
-    Paste.add_view(id_)
     paste = Paste.find(id_)
+    # if not find : 404 error, else :
+    Paste.add_view(id_)
     return render(request, "bin/paste/show.html", {"paste":paste})
 
 

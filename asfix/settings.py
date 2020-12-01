@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'applications.bin.apps.BinConfig',
-    'applications.project_tags.apps.ProjectTagsConfig'
+    'applications.project_tags.apps.ProjectTagsConfig',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

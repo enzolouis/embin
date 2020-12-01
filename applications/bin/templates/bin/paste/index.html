@@ -92,8 +92,7 @@
 	</a>
 
 	<div id="result-not-found">
-		<p>No result found for <q id="result-not-found-search"></q></p>
-		<!--don't let space between <p> and texte cause of white-space:pre-wrap-->
+		<p>No result found</p>
 	</div>
 
 	<!--{% if not forloop.last %}
@@ -117,8 +116,10 @@
 
 
 <script>
+	jQuery(window).load(function(){ jQuery(".loader").fadeOut("200"); });
+
+
 	$(document).ajaxStart(function() {
-		console.log("start")
 		$("#search-logo").show()
 	}).ajaxStop(function () {
 		$("#search-logo").hide();
