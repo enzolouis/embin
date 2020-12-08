@@ -1,4 +1,5 @@
 pre.prettyprint {
+	white-space: pre; /* bottom scroll bar */
 	counter-reset: number;
 	position:fixed;
 	width:100%;
@@ -43,7 +44,7 @@ li::before {
 	color: #fff;
 	display: inline-block;
 	background-color:#282923;
-	width: 6vh;
+	width: 3em;
 	text-align:right;
 	padding-right:1vh;
 	font-size:13px;
