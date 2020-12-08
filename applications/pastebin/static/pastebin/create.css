@@ -10,6 +10,12 @@
 	resize:none;
 }
 
+@media screen and (max-width:800px) {
+	.bin-create textarea {
+		font-size:20px;
+	}
+}
+
 .bin-create button {
 	position:fixed;
 	bottom:3vh;
