@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'applications.bin.apps.BinConfig',
     'applications.project_tags.apps.ProjectTagsConfig',
+    'applications.pastebin.apps.PastebinConfig',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

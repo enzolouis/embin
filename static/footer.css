@@ -1,5 +1,6 @@
 footer {
-  margin-top: 285px;
+	position:absolute;
+	bottom:-700px;
   width: 100%;
 }
 footer a {
@@ -41,6 +42,8 @@ div.reseaux {
 background-color:#4542f5;
 padding:2%;
 text-align:center;
+border-top-left-radius:50%;
+border-top-right-radius:50%;
 }
 
 div.reseaux div {

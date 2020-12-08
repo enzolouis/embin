@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ code }}</title>
+    {% load static %}
+    {% include 'head.html' %}
+    <link href="{% static 'pastebin/show.css' %}" rel="stylesheet">
+</head>
+<body>
+
+
+<pre id="content" class="prettyprint">{% for line in content %}<li>{{ line }}</li>{% endfor %}</pre>
+
+<button onclick="copyClipboard()" class="bottom-button copy-button" type="button"><i class="fas fa-copy"></i></button>
+<button onclick="printDocument()" class="bottom-button print-button" type="button"><i class="fas fa-print"></i></button>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+<script>
+const content = document.getElementById("content")
+
+function copyClipboard() {
+    const range = document.createRange();
+    range.selectNodeContents(content);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand("copy");
+}
+
+function printDocument() {
+    console.log("LET'S PRINT !")
+}
+</script>
+</body>
+</html>

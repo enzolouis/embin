@@ -1,0 +1,84 @@
+/* !important to override default prettyprint style */
+
+.bottom-button {
+	position:fixed;
+	width:15vh;
+	height:15vh;
+	border-radius:50%;
+
+	background-color:#f0f0f0;
+	color:#00001f;
+	cursor:pointer;
+}
+
+.bottom-button svg {
+	font-size:6vh;
+}
+
+.copy-button {
+	bottom:3vh;
+	right:3vh;
+}
+
+.print-button {
+	bottom:20vh;
+	right:3vh;
+}
+
+pre.prettyprint {
+	position:fixed;
+	width:100%;
+	height:100%;
+  	padding:2vh 2vh 2vh 7vh !important;
+	background-color:#00001f !important; /* #282923 (sublime text) */
+	font-size:12px !important;
+	border:none !important;
+	color:#dddddd !important;
+}
+
+pre.prettyprint li {
+	list-style-type:decimal; /* decimal : 9, 10 | decimal-leading-zero : 09, 10 */
+	list-style-position: outside;
+}
+
+pre.prettyprint li::before { /* separate line counter of code ( 1.      print("hi") )*/
+	content:"";
+	margin-right:1vh;
+}
+
+pre.prettyprint li::marker {
+	color:#444444; /* list-style-type color */
+}
+
+.prettyprinted {
+	color:#dddddd !important;
+}
+
+.pln {
+	color:#dddddd !important;
+}
+
+.pun {
+	color:#dddddd !important;
+}
+
+.kwd {
+	color:#F92672 !important;
+}
+
+.typ {
+	color:#66D9EF !important;
+}
+
+.com {
+	color:#75715E !important;
+	font-style:italic !important;
+}
+
+.str {
+	color:#E7DB74 !important;
+}
+
+.lit { /* number */
+	color:#AE81FF !important;
+}

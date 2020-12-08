@@ -9,7 +9,6 @@
 	padding:0;
 	margin:0;
 	border:0;
-	font-family:"Verdana";
 	outline:none;
 }
 
@@ -27,7 +26,7 @@ pre {
 	margin:0;
 	word-wrap: break-word;
   	white-space: pre-wrap; /* or pre to bottom scroll bar */
-	font-family:"Courier new";
+	font-family:'Courier New', Courier, monospace;
 	overflow: auto;
 }
 
@@ -38,6 +37,8 @@ html, body { /* don't have a white background when the page is empty */
 body {
 	font-family:"Verdana";
 	padding:0;
+	position:relative;
+	margin-bottom:100px;
 	margin:0;
 	line-height: 1;
 	background:#333333;

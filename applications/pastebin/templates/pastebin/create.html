@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create paste</title>
+	{% load static %}
+	{% include 'head.html' %}
+	<link href="{% static 'pastebin/create.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<form action="" method="post" class="bin-create">
+	{% csrf_token %}
+	<textarea placeholder="keep calm and paste code" id="content" name="content" required autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+	<button class="unactive" id="submit" type="button"><i class="fas fa-plus"></i></button>
+</form>
+
+<script>
+const submit = document.getElementById("submit");
+const content = document.getElementById("content")
+
+content.addEventListener("keydown", function(event) {
+	if (event.keyCode != 9) return
+
+	event.preventDefault();
+	let start = this.selectionStart; // words before tab
+	let end = this.selectionEnd; // words after tab
+
+	this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+
+	// reset cursor at the good place
+	this.selectionStart = start + 1;
+	this.selectionEnd = start + 1;
+});
+
+function checkActive() {
+	if (!content.value) {
+		submit.classList.remove("active")
+		submit.type = "button"
+	} else {
+		submit.classList.add("active")
+		submit.type = "submit"
+	}
+}
+
+window.onload = checkActive()
+content.addEventListener("input", checkActive)
+
+</script>
+</body>
+</html>
