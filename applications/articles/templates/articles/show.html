@@ -3,7 +3,7 @@
 <head>
 	{% load static %}
 	{% include 'head.html' %}
-	<link href="{% static 'bin/paste/show.css' %}" rel="stylesheet">
+	<link href="{% static 'articles/show.css' %}" rel="stylesheet">
 	<title>Paste - Show</title>
 </head>
 <body>
@@ -13,20 +13,18 @@
 {% include 'header.html' %}
 
 <main>
-<div class="title">
-	<p class="title">
-		{{ paste.title }}
-	</p>
 
-	<p class="number">
-		#{{ paste.id }}
-	</p>
-</div>
-
+<!--
+#{{ article.id }}
+-->
 <div class="content">
-	<pre class="markdown">
-{{ paste.content|markdown|safe }}
-	</pre>
+	<h1 class="title">
+		{{ article.title }}
+	</h1>
+
+	<pre class="markdown">{{ article.content|markdown|safe }}</pre>
+
+	<div class="end"></div>
 </div>
 
 

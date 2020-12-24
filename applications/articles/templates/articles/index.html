@@ -4,7 +4,7 @@
 	<title>PASTE - LIST</title>
 	{% load static %}
 	{% include 'head.html' %}
-	<link href="{% static 'bin/paste/index.css' %}" rel="stylesheet">
+	<link href="{% static 'articles/index.css' %}" rel="stylesheet">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 <div class="title-container" style="background-color: #fefefe;">
 	<div class="title-flex">
 		<div class="title-child">
-			PASTE - {{ pastes|length }}
+			ARTICLES - {{ articles|length }}
 		</div>
 
 		<div class="result-found-number-child" id="paste-result-number">
@@ -56,22 +56,22 @@
 </button>
 
 <div class="parent">
-	{% for post in pastes %}
-	<a href="{% url 'bin:show' post.id %}" class="child" id="paste-{{ post.id }}">
+	{% for article in articles %}
+	<a href="{% url 'articles:show' article.id %}" class="child" id="paste-{{ article.id }}">
 		<div class="details">
 			<span class="created_at">
-				🕐 {{ post.there_is_ago }}
+				🕐 {{ article.there_is_ago }}
 			</span>
 			<span class="views_number">
-				{{ post.views }} 👁
+				{{ article.views }} 👁
 			</span>
 			<span class="title">
-				{{ post.title|upper|truncatechars:50 }}
+				{{ article.title|upper|truncatechars:50 }}
 			</span>
 		</div>
 
 		<div class='overlay'>
-			<!--<a href="/bin/paste/{{ post.id }}">
+			<!--<a href="/articles/paste/{{ post.id }}">
 				<button class="action">
 					LIRE LA SUITE
 				</button>
@@ -81,7 +81,7 @@
 				{{post.id}} {{ post.views }} vues
 			</span>-->
 
-			<img src="{{ post.img }}" onerror="this.src=`{% static 'bin/paste/error_image.png' %}`">
+			<img src="{{ article.img }}" onerror="this.src=`{% static 'articles/error_image.png' %}`">
 
 			<!--<div class="icon">
 				<i class="fas fa-file-code"></i>
@@ -118,7 +118,7 @@
 <script>
 	jQuery(window).load(function(){ jQuery(".loader").fadeOut("200"); });
 
-
+	
 	$(document).ajaxStart(function() {
 		$("#search-logo").show()
 	}).ajaxStop(function () {
@@ -152,7 +152,6 @@
 					if (find_number <= 0) { // <= pour empêcher de bypass, mais normalement c'est un simple ==
 						resultLabel.innerHTML = "0 résultat";
 						$("#result-not-found").show()
-						document.getElementById("result-not-found-search").innerHTML = " " + input.value + " ";
 					} else if (find_number == 1) {
 						resultLabel.innerHTML = "1 résultat";
 					} else {

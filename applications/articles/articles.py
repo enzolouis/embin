@@ -4,7 +4,7 @@ import sqlite3
 from datetime import datetime
 from time import time
 
-class Paste:
+class Articles:
     FORMAT = "%Y-%m-%d %H:%M:%S"
 
     @staticmethod
@@ -81,7 +81,7 @@ class Paste:
         id_  = int(id_)
 
         if id_ < 1: # first case
-            raise Http404(f"Paste #{id_} does not exist anymore. Paste start by 1 !")
+            raise Http404(f"Article #{id_} does not exist anymore. Paste start by 1 !")
 
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
@@ -89,7 +89,7 @@ class Paste:
         result = cursor.execute("SELECT * FROM nvm_paste WHERE id = ?", (id_,)).fetchone()
 
         if result is None: # second case
-            raise Http404(f"Paste #{id_} does not exist anymore.")
+            raise Http404(f"Article #{id_} does not exist anymore.")
 
         result = {
             "id":result[0],
@@ -107,7 +107,7 @@ class Paste:
             
 
     @staticmethod
-    def create_paste(title, content, img):
+    def create_article(title, content, img):
         """
         CREATE TABLE "nvm_paste" (
             "id"    INTEGER NOT NULL UNIQUE,
@@ -131,7 +131,7 @@ class Paste:
 
 
     @staticmethod
-    def get_last_paste():
+    def get_last_article():
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
 

@@ -53,8 +53,12 @@
 			HOME
 		</a>
 
-		<a href="/bin/paste" class="navbar-elt bin-paste-elt">
-			PASTE
+		<a href="/articles" class="navbar-elt articles-elt">
+			ARTICLES
+		</a>
+
+		<a href="/bin" class="navbar-elt bin-elt">
+			BIN
 		</a>
 
 		{% if user.is_authenticated %}
@@ -120,9 +124,16 @@
 		color:#fefefe;
 	}
 
+	{% elif request.path|first_url == "articles" %}
+
+	.articles-elt {
+		background-color:#204ecf;
+		color:#fefefe;
+	}
+
 	{% elif request.path|first_url == "bin" %}
 
-	.bin-paste-elt {
+	.bin-elt {
 		background-color:#204ecf;
 		color:#fefefe;
 	}

@@ -3,11 +3,24 @@
 <head>
 	<title>{{ code }}</title>
     {% load static %}
+    {% load range %}
     {% include 'head.html' %}
-    <link href="{% static 'pastebin/show.css' %}" rel="stylesheet">
+    <link href="{% static 'bin/show.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+
 </head>
 <body>
 
+<!--
+<div class="line-number">
+{% for x in content_line_length|range %}
+<li>{{ x|add:"1" }}</li>
+{% endfor %}
+</div>
+-->
+
+{% include 'header.html' %}
+<main>
 
 <pre id="content" class="prettyprint">{% for line in content %}<li>{{ line }}</li>{% endfor %}</pre>
 
@@ -15,7 +28,7 @@
 <button onclick="copyClipboard()" class="bottom-button copy-button" type="button"><i class="fas fa-copy"></i></button>
 <button onclick="printDocument()" class="bottom-button print-button" type="button"><i class="fas fa-print"></i></button>
 
-
+</main>
 
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 

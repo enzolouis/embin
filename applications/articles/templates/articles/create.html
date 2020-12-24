@@ -3,8 +3,8 @@
 <head>
 	{% load static %}
 	{% include 'head.html' %}
-	<link href="{% static 'bin/paste/create.css' %}" rel="stylesheet">
-	<link href="{% static 'bin/paste/index.css' %}" rel="stylesheet">
+	<link href="{% static 'articles/create.css' %}" rel="stylesheet">
+	<link href="{% static 'articles/index.css' %}" rel="stylesheet">
 	<title>Paste - Create</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
 
 <main>
 
-<form class="create-form" method="post" action="/bin/paste/create"> <!-- return the same page but with a django redirect (POST) -->
+<form class="create-form" method="post" action="create"> <!-- return the same page but with a django redirect (POST) -->
 	{% csrf_token %}
 
 	<div class="form-content">
@@ -34,7 +34,7 @@
 
 
 			<div class='overlay'>
-				<!--<a href="/bin/paste/{{ post.id }}">
+				<!--<a href="/bin/{{ post.id }}">
 					<button class="action">
 						LIRE LA SUITE
 					</button>
@@ -45,7 +45,7 @@
 				</span>-->
 
 				
-				<img id="show-image-img" onerror="this.src=`{% static 'bin/paste/error_image.png'%}`;document.getElementById('show-image-input').style.border = '1px solid red'">
+				<img id="show-image-img" onerror="this.src=`{% static 'bin/error_image.png'%}`;document.getElementById('show-image-input').style.border = '1px solid red'">
 
 				<!--<div class="icon">
 					<i class="fas fa-file-code"></i>

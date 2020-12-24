@@ -1,0 +1,50 @@
+.content {
+	color:black;
+	background-color:#fefefe;
+	margin:2% auto 0 auto;
+	width:60%;
+	border-radius:5px;
+}
+
+
+.content h1.title {
+	color:#fefefe;
+	text-align:center;
+	padding:3%;
+	font-size:200%;
+	width:100%;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	background-color:rgb(72, 126, 176);
+}
+
+.content .end {
+	padding:1%;
+	width:100%;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	background-color:rgb(72, 126, 176);
+
+}
+
+
+.content pre.markdown {
+	font-size:13px;
+	padding:4% 2% 2% 2%;
+	color:black;
+	word-wrap: break-word;
+  	white-space: pre-wrap; /* or pre to bottom scroll bar */
+	font-family:"Courier new", serif !important;
+	overflow: auto;
+}
+
+.content pre.markdown h1 {
+	padding-bottom:4%;
+	border-bottom:3px solid #7f8fa6;
+	margin-bottom:2%;
+}
+
+.content pre.markdown h2 {
+	padding-bottom:2%;
+	border-bottom:2px solid #718093;
+}

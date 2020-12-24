@@ -29,6 +29,7 @@ pre.prettyprint li::marker {
 */
 
 /* !important to override default prettyprint style */
+
 li:first-child::before {
 	padding-top:1vh;
 }
@@ -36,7 +37,6 @@ li:last-child::before {
 	padding-bottom:1vh;
 }
 
-/* The "\a0" is a space */
 li::before {
   	counter-increment: number;
   	content: counter(number);
@@ -58,6 +58,7 @@ li:hover {
 li:hover::before {
 	background-color:#00001f;
 }
+
 
 @media screen and (max-width:800px) {
 	pre.prettyprint {

@@ -12,6 +12,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 	padding:2%;
 	background: #282923;
 	color:#f8f8dc;
+	border-radius:5px;
+	border-left:5px solid rgb(72, 126, 176);
 }
 
 /* Comment */

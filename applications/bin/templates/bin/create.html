@@ -4,15 +4,20 @@
 	<title>Create paste</title>
 	{% load static %}
 	{% include 'head.html' %}
-	<link href="{% static 'pastebin/create.css' %}" rel="stylesheet">
+	<link href="{% static 'bin/create.css' %}" rel="stylesheet">
 </head>
 <body>
+
+{% include 'header.html' %}
+
+<main>
 
 <form action="" method="post" class="bin-create">
 	{% csrf_token %}
 	<textarea placeholder="keep calm and paste code" id="content" name="content" required autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 	<button class="unactive" id="submit" type="button"><i class="fas fa-plus"></i></button>
 </form>
+</main>
 
 <script>
 const submit = document.getElementById("submit");
