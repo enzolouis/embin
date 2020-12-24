@@ -15,9 +15,6 @@ def home(request):
 	print("--> HOME")
 	return render(request, "home.html")
 
-def developers(request):
-	return render(request, "developers.html")
-
 def login_(request): # DON'T OVERWRITE auth.login from django
 	return render(request, "login.html")
 
