@@ -70,6 +70,16 @@ nav.navbar-parent {
 	transition:all 0.2s linear;
 }
 
+.logo-website {
+	padding:5px;
+	position:absolute;
+	left:4vh;
+}
+
+.logo-website img {
+	width:10vh;
+}
+
 .button-top {
 	display:none;
 	padding:1%;

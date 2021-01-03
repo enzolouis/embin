@@ -18,7 +18,7 @@ ALLOWED_HOSTS = ["asfix.herokuapp.com"]
 MIDDLEWARE += ["whitenoise.middleware.WhiteNoiseMiddleware"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -53,7 +53,7 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
-
+"""
 
 """
 
