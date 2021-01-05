@@ -9,7 +9,3 @@ def first_url(url:str):
 @register.filter
 def split_url(url:str):
 	return url.split("/")
-
-@register.filter
-def join_url(url:list):
-	return ' ➔ '.join(url)

@@ -16,6 +16,7 @@
 	{% csrf_token %}
 	<textarea placeholder="keep calm and paste code" id="content" name="content" required autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 	<button class="unactive" id="submit" type="button"><i class="fas fa-plus"></i></button>
+
 </form>
 </main>
 
@@ -27,6 +28,7 @@ content.addEventListener("keydown", function(event) {
 	if (event.keyCode != 9) return
 
 	event.preventDefault();
+	submit.classList.add("active");
 	let start = this.selectionStart; // words before tab
 	let end = this.selectionEnd; // words after tab
 
@@ -49,6 +51,9 @@ function checkActive() {
 
 window.onload = checkActive()
 content.addEventListener("input", checkActive)
+
+
+
 
 </script>
 </body>

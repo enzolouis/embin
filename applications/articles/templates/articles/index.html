@@ -8,9 +8,6 @@
 </head>
 <body>
 
-{% load to_str %}
-{% load range %}
-
 {% include 'header.html' %}
 
 
@@ -38,6 +35,12 @@
 		getCookie, la fonction getCookie vient de la documentation de django à propos des requête ajax : <LIEN_A_METTRE> -->
 		<div class="input-child">
 			<button id="show-all-button" onclick="showAllPaste()">Tout afficher ?</button>
+			<label for="sort">
+			<select name="sort" id="sorted-by">
+				<option value="">Sorted by :</option>
+  				<option value="date">Date</option>
+  				<option value="views">Views</option>
+			</select><br>
 			<input id="search-input" placeholder="Search paste"><button id="search-button">
 				<i class="fas fa-search"></i>
 			</button>

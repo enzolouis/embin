@@ -3,21 +3,12 @@
 <head>
 	<title>{{ code }} ➔ ASFIX</title>
     {% load static %}
-    {% load range %}
     {% include 'head.html' %}
     <link href="{% static 'bin/show.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 
 </head>
 <body>
-
-<!--
-<div class="line-number">
-{% for x in content_line_length|range %}
-<li>{{ x|add:"1" }}</li>
-{% endfor %}
-</div>
--->
 
 {% include 'header.html' %}
 <main>

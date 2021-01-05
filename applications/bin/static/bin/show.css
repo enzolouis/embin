@@ -30,6 +30,20 @@ pre.prettyprint li::marker {
 
 /* !important to override default prettyprint style */
 
+/*
+FIREFOX :
+les <li> créent un padding-bottom (on dirait) de quelque px, le text s'aligne en haut à droite de la <li>
+
+CHROME :
+les <li> créent aucun padding-bottom mais centre bien le texte au milieu à droite
+*/
+li {
+	padding:0 !important;
+	outline:0 !important;
+	margin:0 !important;
+	/* line-height:0.8; */
+}
+
 li:first-child::before {
 	padding-top:1vh;
 }
@@ -49,15 +63,15 @@ li::before {
 	padding-right:1vh;
 	font-size:13px;
 }
+
 li:hover {
 	background-color:#00001f;
-	padding-top:1vh;
-	padding-bottom:1vh;
 }
 
 li:hover::before {
 	background-color:#00001f;
 }
+
 
 
 @media screen and (max-width:800px) {

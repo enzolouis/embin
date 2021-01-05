@@ -175,7 +175,7 @@ div.title-flex .input-child #search-input {
 	border:1px solid #CFD7E6;
 	border-right:none; /* fusionner avec le button à droite */
 	text-align:left;
-	font-weight:800;
+	font-weight:600;
 	transition:all 0.3s linear;
 	border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -185,20 +185,21 @@ div.title-flex .input-child #search-input {
 
 
 div.title-flex .input-child #search-input:hover {
-	background-color:#204ecf;
+	/*background-color:#204ecf;
 	border:1px solid #204ecf;
-	color:white;
+	color:white;*/
 	opacity:0.8;
 }
 
 div.title-flex .input-child #search-input::placeholder {
 	opacity:0.5;
 	font-weight:bold;
+	color:#204ecf;
 }
 
 div.title-flex .input-child button {
 	color:white;
-    background-color:#204ecf; /* #e84118 */
+    background-color:#204ecf;
     cursor:pointer;
     transition: all 0.3s linear;
     border:1px solid #204ecf;
@@ -228,10 +229,22 @@ div.title-flex .input-child #search-button {
 div.title-flex .input-child #show-all-button {
 	width:100%;
 	padding:4%;
-	margin-bottom:3%;
 
     border-radius: 10px;
 }
+
+div.title-flex select#sorted-by {
+	width:100%;
+	padding:4%;
+	margin-bottom:1%;
+	margin-top:1%;
+	font-weight:600;
+
+	color:#204ecf;
+	border:1px solid #CFD7E6;
+	border-radius:10px;
+}
+
 
 /* END */
 
@@ -274,15 +287,17 @@ button {
 box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
 	opacity:0.9;
 	border-radius:10px;
-	background-color:#e84118;
+	background-color:rgb(39, 60, 117);
 	transition:all 0.3s ease-out;
 	padding:0 10px 10px 10px;
 }
 
 .child:hover{
-	transform:scale(0.9);
+	transform:scale(1.05);
 	z-index:10000;
 	opacity:1;
+	border-left:5px solid rgb(72, 126, 176);
+	border-bottom:5px solid rgb(72, 126, 176);
 	/* border-bottom:10px solid #4cd137; */
 }
 /*
@@ -297,7 +312,7 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
 */
 
 .overlay {
-	background-color:#e84118 !important;
+	background-color:rgb(72, 126, 176) !important;
 	height:70%; /* CH */
 }
 
@@ -311,7 +326,7 @@ box-shadow: 0px 0px 27px 0px rgba(0,0,0,0.75);
 
 div.details {
 	color:#00000f;
-	background-color:#e84118;
+	background-color:rgb(39, 60, 117);
 	display:flex;
 	flex-flow:row wrap;
 	align-items:center;
@@ -325,7 +340,7 @@ div.details .title {
 	text-align:center;
 	font-weight:bold;
 	padding:3%;
-	background-color:#c23616;
+	background-color:rgb(25, 42, 86);
 	color:#fefefe;
 	border-radius:10px;
 	font-size:80%;

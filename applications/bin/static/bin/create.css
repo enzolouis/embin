@@ -4,7 +4,7 @@
 	width:100%;
 	height:100%;
 	padding:5vh;
-	background-color:#00001f;
+	background-color:#333333;
 	font-size:12px;
 	color:#dddddd;
 	resize:none;
@@ -16,7 +16,7 @@
 	}
 }
 
-.bin-create button {
+.bin-create button.unactive {
 	position:fixed;
 	bottom:3vh;
 	right:3vh;
@@ -24,7 +24,7 @@
 	height:15vh;
 	border-radius:50%;
 
-	background-color:#00001f;
+	background-color:#333333;
 	color:#f0f0f0;
 	cursor:not-allowed;
 	opacity:0.3;
@@ -35,11 +35,36 @@
 	cursor:pointer;
 	opacity:1;
 	background-color:#f0f0f0;
-	color:#00001f;
+	color:#333333;
 
 	transition:all 1s linear;
 }
 
 .bin-create svg {
 	font-size:10vh;
+}
+
+button.preview {
+	position:fixed;
+	bottom:15vh;
+	right:3vh;
+	width:15vh;
+	height:15vh;
+	border-radius:50%;
+
+	background-color:#f0f0f0;
+	color:#333333;
+}
+
+#preview {
+	font-family:"Courier new", Courier, monospace;
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:10%;
+	padding:5vh;
+	background-color:#333333;
+	font-size:12px;
+	color:#dddddd;
 }

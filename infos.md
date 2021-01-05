@@ -15,7 +15,7 @@
 - psycopg2 (request)
 - dj-database-url (settings_production.py)
 
-# HEROKU UTILITES
+# HEROKU UTILITIES
 - gunicorn
 
 
@@ -24,8 +24,16 @@ itsdangerous ?
 MarkupSafe ?
 
 # TO DO
+- refaire le get_there_is_format dans applications/bin/articles.py, le comptage de jour/mois/année est nul
+- ajouter des filtres de recherches dans /articles
+- ajouter du margin en bas des bin comme /bin/axbdfc, et dans /bin, car on voit mal la dernière ligne, voire même l'avant dernière
 
-supprimer l'applications project_tags, déplacer son dossier template_tags dans applications/bin
+# DID
+03/01/2021 : supprimer l'applications project_tags, déplacer son dossier template_tags dans applications/bin
+
+
+# Important, à sauvegarder
+couleur beau rouge : #e84118
 
 <style>
 	* {
@@ -35,3 +43,9 @@ supprimer l'applications project_tags, déplacer son dossier template_tags dans 
 		background-color:#00000f;
 	}
 </style>
+
+# COLORS
+
+rouge :
+clair : #e84118
+foncé : #c23616
