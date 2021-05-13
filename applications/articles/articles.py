@@ -29,8 +29,6 @@ class Articles:
                 "secondes":datetime.now().second - created_at.second,
             }
 
-            print(stats)
-
             there_is_ago = "/"
 
             for x, y in stats.items():

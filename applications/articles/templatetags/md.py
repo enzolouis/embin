@@ -4,7 +4,24 @@ from django.template.defaultfilters import stringfilter
 import markdown as md
 import markdown2 as md2
 
+
+"""
+DESACTIVATION DU FICHIER MD POUR :
+
+Faille XSS,
+
+Markdown -> HTML
+
+HTML -> <script>...</script>
+
+"""
+
+
+
+
 register = template.Library()
+
+
 
 
 @register.filter()
