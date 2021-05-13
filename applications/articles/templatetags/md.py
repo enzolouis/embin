@@ -17,7 +17,7 @@ HTML -> <script>...</script>
 """
 
 
-
+"""
 
 register = template.Library()
 
@@ -34,3 +34,4 @@ def markdown(value):
 @stringfilter
 def markdown2(value):
     return md2.markdown(value)
+"""

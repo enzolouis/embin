@@ -8,7 +8,7 @@
 </head>
 <body>
 
-{% load md %}
+<!-- {% load  %} "md" NOT SAFE -->
 
 {% include 'header.html' %}
 
@@ -21,8 +21,8 @@
 	<h1 class="title">
 		{{ article.title }}
 	</h1>
-
-	<pre class="markdown">{{ article.content|markdown|safe }}</pre>
+	<!-- <pre class="markdown">\{{ article.content }}</pre> article.content|markdown|safe NOT SAFE, FAILLE XSS -->
+	<pre class="markdown">{{ article.content }}</pre>
 
 	<div class="end"></div>
 </div>
