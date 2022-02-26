@@ -1,3 +1,6 @@
+## ERREUR LORS DU DEPLOIEMENT :
+- Mettre .png au lieu de .PNG n'affiche pas l'image au déploiement, même si ca marche en local
+
 ## REQUIREMENTS.TXT
 
 # DJANGO and DEPENDENCIES
