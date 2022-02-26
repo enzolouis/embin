@@ -118,7 +118,7 @@ div.sign {
 	display:flex;
 	align-items:center;
 	position:relative;
-	left:30%;
+	left:20%; /* avant c'était à 30% d'ou le bug du scrollbar en bas */
 }
 
 div.sign a {

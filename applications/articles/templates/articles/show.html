@@ -20,6 +20,8 @@
 <div class="content">
 	<h1 class="title">
 		{{ article.title }}
+		<br>
+		<p style="color: #AA1123;font-size: 12px;font-weight: 500;">* Le système de markdown a été enlevé pour l'instant : pas safe</p>
 	</h1>
 	<!-- <pre class="markdown">\{{ article.content }}</pre> article.content|markdown|safe NOT SAFE, FAILLE XSS -->
 	<pre class="markdown">{{ article.content }}</pre>

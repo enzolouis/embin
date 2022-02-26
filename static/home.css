@@ -1,33 +1,13 @@
-div.presentation {
-	color:white;
-	text-align:center;
-}
-
-div.presentation img {
-
-}
-
-div.description {
-	background-color:none;
-	padding:1%;
-	display:inline-block;
-	border-left:5px solid orange;
-	border-radius:10px;
-	margin-left:5%;
-}
-
-
-
 div.pictogramme {
-background-color:#ff6c00;
-padding:1%;
-text-align:center;
+	background-color:none;
+	text-align:center;
 }
 
 
 div.pictimage {
-margin-bottom:5px;
-text-align:center;
+	margin-bottom:5px;
+	text-align:center;
+	font-size: 45px;
 }
 
 .testli {
@@ -39,6 +19,216 @@ flex-wrap: wrap;
 }
 
 .testli > li {
-flex: 1;
-margin: 0 20px;
+	flex: 1;
+	/*padding: 1%;*/
+
+	color: white;
+	cursor: pointer;
+	font-size: 40px;
+	border-radius: 7px;
+	border-bottom: 3px solid white;
 }
+
+.testli > li:hover {
+	transition: transform 0.2s linear;
+	transform: translateY(-10px);
+	-webkit-box-shadow: 0px 8px 15px 3px #565656;
+	box-shadow: 0px 8px 15px 3px #565656;
+}
+
+.testli > li > a {
+	padding: 1%;
+}
+
+
+.testli > .bin {
+	flex: 0 0 20%;
+	background: #44bd32;
+
+	-webkit-box-shadow: 0px 0px 15px 5px #44bd32;
+	box-shadow: 0px 0px 15px 5px #44bd32;
+}
+
+.testli > .articles {
+	flex: 0 0 20%;
+	background: #0097e6;
+
+	-webkit-box-shadow: 0px 0px 15px 5px #0097e6;
+	box-shadow: 0px 0px 15px 5px #0097e6;
+}
+
+.testli > .signin {
+	flex: 0 0 20%;
+	background: #FAA61A;
+
+	-webkit-box-shadow: 0px 0px 15px 5px #FAA61A;
+	box-shadow: 0px 0px 15px 5px #FAA61A;
+}
+
+.testli > .other-2 {
+	flex: 0 0 20%;
+
+	background: #e84118;
+	-webkit-box-shadow: 0px 0px 15px 5px #e84118;
+	box-shadow: 0px 0px 15px 5px #e84118;
+}
+
+
+
+
+/* ------------ */
+
+div.container-1 {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 5%;
+	margin-bottom: 10%;
+}
+
+div.child-content {
+	flex: 0 0 50%;
+}
+
+div.child-content p {
+	color: white;
+    font-size: 20px;
+    line-height: 200%;
+    width: 100%;
+    margin: 1%;
+}
+
+
+div.child-content h1 {
+    font-size: 48px;
+	padding-bottom: 20px;
+	border-bottom: 5px solid rgba(72, 126, 173, 0.5);
+	color: white;
+	
+}
+
+div.child-image {
+    text-align: center;
+    display: inline-block;
+}
+
+div.img {
+    align-content: center;
+}
+
+div.img img {
+    width: 300px;
+}
+
+
+
+/* GENERIC BUTTON */
+
+
+a.button {
+    display: inline-block;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px 1px 10px 1px;
+    background: rgb(89,32,225);
+    background: linear-gradient(90deg, rgba(72, 126, 173, 1) 0%, rgba(72, 126, 173, 0.5) 50%, rgba(72, 126, 173, 1) 100%);
+    background-size: 200%;
+    -webkit-box-shadow: -3px 3px 1px 1px #ffffff; 
+    box-shadow: -3px 3px 1px 1px #ffffff;
+    margin: 2% 1% 1% 1%;
+}
+
+a.button:hover {
+    transition: background-position 0.5s linear;
+    background-position: right;
+    /*background: linear-gradient(30deg, rgba(193,72,255,1) 0%, rgba(157,74,254,1) 50%, rgba(126,72,254,1) 70%); */
+}
+
+
+a.button2 {
+    border:1px solid rgba(72, 126, 173, 1);
+
+    display: inline-block;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px 1px 10px 1px;
+    
+    background-size: 200%;
+
+    -webkit-box-shadow: -3px 3px 1px 1px #ffffff; 
+    box-shadow: -3px 3px 1px 1px #ffffff;
+    margin: 2% 1% 1% 1%;
+}
+
+a.button2:hover {
+    transition: background-position 0.5s linear;
+    background-color: rgba(72, 126, 173, 1);
+    background-image: linear-gradient(90deg, rgba(72, 126, 173, 1) 0%, rgba(72, 126, 173, 0.5) 50%, rgba(72, 126, 173, 1) 100%);
+    background-position: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div.presentation {
+	margin-top: 10%;
+}
+
+div.presentation div {
+	display: flex;
+	align-items: 	center;
+}
+
+div.presentation div p {
+	display: block;
+	flex: 0 10 50%;
+	text-align: 	center;
+	font-size: 50px;
+}
+
+div.presentation img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+div.presentation div.bin {
+	background: #44bd32;
+}
+
+
+/* temp */
+
+div.presentation div.articles {
+	background: #0097e6;
+}
+
+/* */
+
+
+div.presentation div.signin {
+	background: #FAA61A;
+}
+
+
+/* */
+
+div.presentation div.other-2 {
+	background: #e84118;
+}
+

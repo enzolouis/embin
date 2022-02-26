@@ -35,7 +35,8 @@ html, body { /* don't have a white background when the page is empty */
 }
 
 body {
-	font-family:"Verdana";
+	font-family:Corbel; /* "Verdana", "Agency FB" */
+	font-size: 16px;
 	padding:0;
 	position:relative;
 	margin-bottom:100px;

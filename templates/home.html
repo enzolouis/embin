@@ -11,156 +11,126 @@
 {% include 'header.html' %}
 
 <main>
+
+
+<div class="container-1">
+
+	<div class="child-content">
+
+		<h1>
+		    ASFIX
+		</h1>
+
+		<p>
+			ASFIX est à l'origine fait pour les développeurs, d'où la création d'un système
+			de BIN pour copier-coller un bout de code dedans afin de le partager à d'autre
+			développeurs.
+			Mais il y a aussi les articles qui peuvent être utilisés à propos
+			de n'importe quel sujet, même s'il y a une mise en avant du code avec un système
+			de couleur.
+			Un système de liens et de commentaires est prévu prochainement.
+			
+		</p>
+
+		<a href="/bin" class="button">
+		  <i class="fas fa-paste"></i>  Paste your code snippets
+		</a>
+
+		<a href="/articles" class="button2">
+		  <i class="fas fa-newspaper"></i>  Make an article
+		</a>
+
+	</div>
+
+	<div class="child-image">
+		<div class="img">
+		    <img src="{% static 'logo__.png' %}">
+		</div>
+	</div>
+</div>
+
+
+
+
 <div class="main">
-<div class="presentation">
-	<h1>
-		ASFIX PROJECT
-	</h1>
-	<img src="{% static 'logo_.png' %}" width="100">
-</div>
 
-<div class="description">
-What for ?
-</div>
-
-<br>
--> {{ next }}<br>
--> {{ user }}<br>
--> {{ form }}<br>
 
 <div class="pictogramme">
 	<ul class="testli">
-	  <li>
-		<div class="pictimage">
-		  <img src="https://img.icons8.com/ios-filled/50/000000/newtonsoft.png">
-		</div>
-		<h3>...</h3>
+	  <li class="bin">
+	  	<a href="#bin">
+			<div class="pictimage">
+				<i class="fas fa-paste"></i>
+			</div>
+			<h3>Create and share bin</h3>
+		</a>
 	  </li>
 
-	  <li>
-		<div class="pictimage">
-		  <img src="https://img.icons8.com/ios-filled/50/000000/newtonsoft.png">
-		</div>
-		<h3>...</h3>
+	  <li class="articles">
+	  	<a href="#articles">
+			<div class="pictimage">
+				<i class="fas fa-newspaper"></i>
+			</div>
+			<h3>Create and read article</h3>
+	  	</a>
 	  </li>
 
-	  <li>
-		<div class="pictimage">
-		  <img src="https://img.icons8.com/ios-filled/50/000000/newtonsoft.png">
-		</div>
-		<h3>...</h3>
+	  <li class="signin">
+		<a href="#signin">
+			<div class="pictimage">
+				<i class="fas fa-sign-in-alt"></i>
+			</div>
+			<h3>Sign up to interact</h3>
+		</a>
 	  </li>
 
-	  <li>
-		<div class="pictimage">
-		  <img src="https://img.icons8.com/ios-filled/50/000000/newtonsoft.png">
-		</div>
-		<h3>...</h3>
+	  <li class="other-2">
+	  	<a href="#signin">
+			<div class="pictimage">
+				<i class="fas fa-paste"></i>
+			</div>
+			<h3>Hello World</h3>
+	  	</a>
 	  </li>
 	</ul>
 
 </div>
 
-<div class="other">
-Je sais pas quoi mettre mais bon<br>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+<div class="presentation">
+
+	<div id="bin" class="bin">
+		<p>Copy, <br> Paste, <br> Share <br> Bin</p>
+		<p><img src="{% static 'code.png' %}"></p>
+	</div>
+
+	<div id="articles" class="articles">
+		<p><img src="{% static 'article.png' %}"></p>
+		<p>Create, <br> Share, <br> Read <br> Articles</p>
+	</div>
+
+	<div id="signin" class="signin">
+		<p>Sign in, <br> Profile, <br> Comments, <br> Login</p>
+		<p><img src="{% static 'signin.png' %}"></p>
+	</div>
+
+	<!--<div class="other-2">
+		<p><img src="{% static 'code.png' %}"></p>
+		<p>Create, <br> Share, <br> Read <br> Articles</p>
+	</div>
+-->
 </div>
+
+
+
 </div>
+<!--
+<br>
+-> {{ next }}<br>
+-> {{ user }}<br>
+-> {{ form }}<br>
+-->
 
 
 </main>
