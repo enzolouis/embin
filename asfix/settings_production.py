@@ -4,7 +4,7 @@ import dj_database_url
 from .settings import *
 
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 SECRET_KEY = os.environ["SECRET_KEY"] # in heroku
