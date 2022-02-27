@@ -139,8 +139,7 @@ a.button {
 
 a.button:hover {
     transition: background-position 0.5s linear;
-    /*background-position: right;*/
-    background-size: 300%;
+    background-position: right;
     /*background: linear-gradient(30deg, rgba(193,72,255,1) 0%, rgba(157,74,254,1) 50%, rgba(126,72,254,1) 70%); */
 }
 
