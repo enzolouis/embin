@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 
+from django.contrib.auth.models import User
+
 import json
 import markdown as md
+import sqlite3
 
 from datetime import datetime
 
@@ -15,11 +18,33 @@ def index(request):
     return render(request, "articles/index.html", {'articles':articles})
 
 
+
+# Voir ce qu'il y a d'autre à faire
+# comme un bouton pour supprimer son commentaires
+# ou un système de like
+
 def show(request, id_):
     article = Articles.find(id_)
     # if not find : 404 error, else :
-    Articles.add_view(id_)
-    return render(request, "articles/show.html", {"article":article})
+
+    con = sqlite3.connect("test.db")
+    cursor = con.cursor()
+
+    if request.method == "GET":
+        Articles.add_view(id_)
+        #return render(request, "articles/show.html", {"article":article})
+    elif request.method == "POST" and request.user.is_authenticated: #ne fait rien si user pas login
+        cursor.execute("INSERT INTO nvm_comments VALUES(?, ?, ?)", (id_, request.user.id, request.POST.get("content")))
+        con.commit()
+
+    cursor.execute("SELECT * FROM nvm_comments WHERE id_paste = ?", (id_, ))
+
+    comments = [(id_paste, User.objects.get(id=id_author), content) for id_paste, id_author, content in cursor.fetchall()]
+
+    cursor.close()
+    con.close()
+
+    return render(request, "articles/show.html", {"article":article, "comments":comments})
 
 
 

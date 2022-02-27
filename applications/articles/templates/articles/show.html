@@ -27,7 +27,32 @@
 	<pre class="markdown">{{ article.content }}</pre>
 
 	<div class="end"></div>
+
 </div>
+
+<form method="POST">
+	{% csrf_token %}
+	<p>Ecrivez un commentaire ici :</p>
+	<textarea name="content"></textarea>
+	{% if user.is_authenticated %}
+	<button class="button-green">Ajouter</button>
+	{% else %}
+	<button class="button-disabled" disabled>Il faut vous inscrire pour commenter !</button>
+	{% endif %}
+</form>
+
+{% for _, author, content in comments %}
+<div class="content">
+
+	<p class="author">
+		@{{author.username}}
+	</p>
+	<!-- <pre class="markdown">\{{ article.content }}</pre> article.content|markdown|safe NOT SAFE, FAILLE XSS -->
+	<pre class="markdown">{{content}}</pre>
+
+	<div class="end"></div>
+</div>
+{% endfor %}
 
 
 </main>

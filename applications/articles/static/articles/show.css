@@ -30,7 +30,7 @@
 
 .content pre.markdown {
 	font-size:13px;
-	padding:4% 2% 2% 2%;
+	padding:2% 2% 2% 2%; /* padding:  4% 2% 2% 2%;*/
 	color:black;
 	word-wrap: break-word;
   	white-space: pre-wrap; /* or pre to bottom scroll bar */
@@ -47,4 +47,39 @@
 .content pre.markdown h2 {
 	padding-bottom:2%;
 	border-bottom:2px solid #718093;
+}
+
+
+form {
+	margin:2% auto 0 auto;
+	width:60%;
+}
+
+form p {
+	padding: 1%;
+	color: white;
+}
+
+form textarea {
+	padding: 1%;
+	width: 100%;
+}
+
+form button {
+	padding: 1% !important;
+	margin-top: 1%;
+	display: inline-block !important;
+}
+
+
+.content p.author {
+	display: block;
+	font-style: italic;
+	font-weight: bold;
+
+	color:#fefefe;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	background-color:rgb(72, 126, 176);
+	padding: 1%;
 }

@@ -1,6 +1,11 @@
 ## ERREUR LORS DU DEPLOIEMENT :
 - Mettre .png au lieu de .PNG n'affiche pas l'image au déploiement, même si ca marche en local
 
+## PROCHAINEMENT
+- Ajout d'un système de commentaires sous les articles via les comptes
+- Page regroupant des liens et des trucs utiles comme le projet WebTools (JavascriptProject)
+- Ajouter la nav camembert pour les téléphones comme sur WebTools
+
 ## REQUIREMENTS.TXT
 
 # DJANGO and DEPENDENCIES
@@ -31,6 +36,7 @@ MarkupSafe ?
 - ajouter des filtres de recherches dans /articles
 - ajouter du margin en bas des bin comme /bin/axbdfc, et dans /bin, car on voit mal la dernière ligne, voire même l'avant dernière
 - ET aussi l'espace entre les lignes est mal réglé pour firefox. :done:
+
 
 # DID
 03/01/2021 : supprimer l'applications project_tags, déplacer son dossier template_tags dans applications/bin

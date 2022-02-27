@@ -43,26 +43,26 @@ flex-wrap: wrap;
 
 .testli > .bin {
 	flex: 0 0 20%;
+	background: #e84118;
+
+	-webkit-box-shadow: 0px 0px 15px 5px #e84118;
+	box-shadow: 0px 0px 15px 5px #e84118;
+}
+
+.testli > .articles {
+	flex: 0 0 20%;
 	background: #44bd32;
 
 	-webkit-box-shadow: 0px 0px 15px 5px #44bd32;
 	box-shadow: 0px 0px 15px 5px #44bd32;
 }
 
-.testli > .articles {
+.testli > .signin {
 	flex: 0 0 20%;
 	background: #0097e6;
 
 	-webkit-box-shadow: 0px 0px 15px 5px #0097e6;
 	box-shadow: 0px 0px 15px 5px #0097e6;
-}
-
-.testli > .signin {
-	flex: 0 0 20%;
-	background: #FAA61A;
-
-	-webkit-box-shadow: 0px 0px 15px 5px #FAA61A;
-	box-shadow: 0px 0px 15px 5px #FAA61A;
 }
 
 .testli > .other-2 {
@@ -139,7 +139,8 @@ a.button {
 
 a.button:hover {
     transition: background-position 0.5s linear;
-    background-position: right;
+    /*background-position: right;*/
+    background-size: 300%;
     /*background: linear-gradient(30deg, rgba(193,72,255,1) 0%, rgba(157,74,254,1) 50%, rgba(126,72,254,1) 70%); */
 }
 
@@ -193,6 +194,7 @@ div.presentation div {
 }
 
 div.presentation div p {
+	color: white;
 	display: block;
 	flex: 0 10 50%;
 	text-align: 	center;
@@ -208,21 +210,21 @@ div.presentation img {
 
 
 div.presentation div.bin {
-	background: #44bd32;
+	background: #e84118;
 }
 
 
 /* temp */
 
 div.presentation div.articles {
-	background: #0097e6;
+	background: #44bd32;
 }
 
 /* */
 
 
 div.presentation div.signin {
-	background: #FAA61A;
+	background: #0097e6;
 }
 
 
