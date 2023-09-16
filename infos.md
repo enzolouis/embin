@@ -26,6 +26,10 @@
 # HEROKU UTILITIES
 - gunicorn
 
+## APPLIQUER DES CORRECTIFS A DES TRUCS VIEUX :
+- Truc JQuerry deprecated
+- Enlever definitivement la database local et utiliser à 100% le systeme django
+
 
 click ?
 itsdangerous ?
