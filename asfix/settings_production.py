@@ -12,7 +12,7 @@ SECRET_KEY = os.environ["SECRET_KEY"] # in heroku
 # https://pypi.org/project/dj-database-url
 DATABASES["default"] = dj_database_url.config()
 
-ALLOWED_HOSTS = ["asfix.herokuapp.com"]
+ALLOWED_HOSTS = ["asfix.herokuapp.com", "web-production-b040.up.railway.app"]
 
 # http://whitenoise.evans.io/en/stable/
 MIDDLEWARE += ["whitenoise.middleware.WhiteNoiseMiddleware"]
