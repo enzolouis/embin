@@ -16,9 +16,8 @@ DATABASES["default"] = dj_database_url.config()
 """
 
 # Render:
-DATABASES['default'] = dj_database_url.config(
-    conn_max_age=600
-)
+database_url = os.environ["DATABASE_URL"]
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 ALLOWED_HOSTS = ["asfix.herokuapp.com", "asfix.onrender.com"]
