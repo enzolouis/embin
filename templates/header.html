@@ -43,13 +43,12 @@
 
 
 
-<div class="separator-1">
-	<div></div>
-</div>
-
-
 <nav id="navbar" class="navbar-parent">
-	<div id="navbar-content" class="header-content" style="width:80%;display:flex;flex-flow:row wrap;margin: auto">
+	<div id="navbar-content" class="header-content">
+		<h1 id="appname">
+			Embin
+		</h1>
+		<div class="links">
 		<a href="/" class="navbar-elt index-elt">
 			HOME
 		</a>
@@ -62,10 +61,13 @@
 			BIN
 		</a>
 
+
+
 		{% if user.is_authenticated %}
 		<a href="/profile" class="navbar-elt profile-elt">
 			PROFILE
 		</a>
+		</div>
 		<div class="sign">
 			<a href="/profile" class="signin button-red">
 				LOGOUT
@@ -75,6 +77,7 @@
 		<a href="/login" class="navbar-elt login-elt">
 			LOGIN
 		</a>
+		</div>
 		<div class="sign">
 			<a href="/login/sign-in" class="signin button-green">
 				SIGN IN
@@ -84,20 +87,17 @@
 			</a>
 		</div>
 		{% endif %}
-
+		<!--
 		<div class="logo-website">
 			<img src="{% static 'logo__.png' %}">
 		</div>
+	-->
 
 		<div id="button-top" class="button-top">
 			<i onclick="topFunction()" class="fas fa-arrow-circle-up"></i>
 		</div>
 	</div>
 
-
-	<div id="separator-move" class="separator-2">
-		<div></div>
-	</div>
 
 </nav>
 
@@ -118,34 +118,34 @@
 <style>
 	{% if request.path|first_url == "login" %}
 	.login-elt {
-		background-color:#204ecf;
+		border-bottom: 1px solid #cccccc;
 		color:#fefefe;
 	}
 
 	{% elif request.path|first_url == "profile" %}
 
 	.profile-elt {
-		background-color:#204ecf;
+		border-bottom: 1px solid #cccccc;
 		color:#fefefe;
 	}
 
 	{% elif request.path|first_url == "articles" %}
 
 	.articles-elt {
-		background-color:#204ecf;
+		border-bottom: 1px solid #cccccc;
 		color:#fefefe;
 	}
 
 	{% elif request.path|first_url == "bin" %}
 
 	.bin-elt {
-		background-color:#204ecf;
+		border-bottom: 1px solid #cccccc;
 		color:#fefefe;
 	}
 
 	{% else %}
 	.index-elt {
-		background-color:#204ecf;
+		border-bottom: 1px solid #cccccc;
 		color:#fefefe;
 	}
 	{% endif %}

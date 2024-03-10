@@ -1,3 +1,8 @@
+.home-button {
+	display: inline-block;
+	padding: 1%;
+}
+
 div.pictogramme {
 	background-color:none;
 	text-align:center;
@@ -94,14 +99,16 @@ div.child-content p {
     font-size: 20px;
     line-height: 200%;
     width: 100%;
+    padding: 1%;
     margin: 1%;
+    margin-bottom: 2%;
 }
 
 
 div.child-content h1 {
     font-size: 48px;
 	padding-bottom: 20px;
-	border-bottom: 5px solid rgba(72, 126, 173, 0.5);
+	border-bottom: 5px solid rgb(72, 126, 176);
 	color: white;
 	
 }

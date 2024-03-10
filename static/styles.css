@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import 'header.css';
 @import 'footer.css';
 @import 'markdown_highlight.css';
@@ -36,6 +38,10 @@ html, body { /* don't have a white background when the page is empty */
 
 body {
 	font-family:Corbel; /* "Verdana", "Agency FB" */
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 	font-size: 16px;
 	padding:0;
 	position:relative;
