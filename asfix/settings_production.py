@@ -10,7 +10,16 @@ TEMPLATE_DEBUG = True
 SECRET_KEY = os.environ["SECRET_KEY"] # in heroku
 
 # https://pypi.org/project/dj-database-url
+"""
+Heroku:
 DATABASES["default"] = dj_database_url.config()
+"""
+
+# Render:
+DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600
+)
+
 
 ALLOWED_HOSTS = ["asfix.herokuapp.com", "asfix.onrender.com"]
 #CSRF_TRUSTED_ORIGINS = ['https://web-production-b040.up.railway.app']
