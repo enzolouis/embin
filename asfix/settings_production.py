@@ -20,7 +20,7 @@ database_url = os.environ["DATABASE_URL"]
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 
-ALLOWED_HOSTS = ["asfix.herokuapp.com", "asfix.onrender.com", "embin.onrender.com"]
+ALLOWED_HOSTS = ["embin.onrender.com", "bin.enzolouis.me"]
 #CSRF_TRUSTED_ORIGINS = ['https://web-production-b040.up.railway.app']
 
 # http://whitenoise.evans.io/en/stable/
