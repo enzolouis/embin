@@ -16,7 +16,7 @@
 	{% csrf_token %}
 
 	<h2 class="top">
-		SIGN IN
+		Login to your account
 	</h2>
 
 	{% if sign_succeed %}
@@ -59,11 +59,13 @@
 			<span class="is_valid">{{ password_is_valid }}<span> <!-- IF it is get, password_is_valid just not work and span is empty -->
 		</div>
 	</div>
-
-	<button type="submit" class="button-green bottom">
-		SUBMIT
-	</button>
-
+  
+  <div class="end">
+	  <button type="submit" class="button-green bottom">
+		  Login
+	  </button>
+  </div>
+  
 	<div class="separator"></div>
 
 	<a class="already-login" href="sign-up">I want to create my account</a>
@@ -76,7 +78,7 @@
 
 </main>
 
-{% include 'footer.html' %}
+<!-- % include 'footer.html' %} -->
 
 
 <script src="{% static 'login.js' %}"></script>

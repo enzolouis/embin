@@ -19,14 +19,14 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-	path('', views.home),
+    #path('', views.home),
     # path('developers', views.developers),
     path('login', views.login_, name="login"),
     path('login/sign-in', views.sign_in, name="sign-in"),
     path('login/sign-up', views.sign_up, name="sign-up"),
     path("profile", views.profile, name="profile"),
-    path('articles/', include("applications.articles.urls")),
-	path('bin/', include("applications.bin.urls")),
+    #path('articles/', include("applications.articles.urls")),
+      path('', include("applications.bin.urls")),
     path('admin/', admin.site.urls),
 
     # path('cookies/', include('cookie_consent.urls')), # django-cookie-consent extern module
