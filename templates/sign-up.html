@@ -4,101 +4,60 @@
 	{% load static %}
 	{% include 'head.html' %}
 	<link href="{% static 'login.css' %}" rel="stylesheet">
-	<title>Sign up ➔ ASFIX</title>
+	<title>Register ➔ Embin</title>
 </head>
 <body class="sign">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 {% include 'header.html' %}
 
 <main>
+	<form id="form-reg" method="post" class="form-container form-register">
+		{% csrf_token %}
+	    <label for="username">Username</label>
+	    <div id="loginDiv"><input type="text" class="login" id="username" name="username" placeholder="benjamin123" autocomplete="off" maxlength="50" required></div>
+	    <label class="secure-password-and-bad-password" id="secure-login">
+	        <div id="secure-login-details">&#8226 Login already taken</div>
+	    </label>
 
-<form method="post" class="div-sign div-signup">
-	{% csrf_token %}
+	    <label for="password">Password</label>
+	    <div class="passwordDivs" id="passwordDiv">
+	        <input type="password" id="password" name="password" placeholder="NX:b7!LrPg@t2X9" minlength=8 maxlength="50" value="" required>
+	        <button type="button" class="hide-password" id="hide-password"><i class="fa-solid fa-eye"></i></button>
+	    </div>
+	    <label class="secure-password-and-bad-password" id="secure-password">
+	        <div id="secure-password-details">
+	            <p id="secure-8letters"><i class="fa-solid fa-xmark"></i> 8 letters</p>
+	            <p id="secure-capital"><i class="fa-solid fa-xmark"></i> 1 capital letter</p>
+	            <p id="secure-special"><i class="fa-solid fa-xmark"></i> 1 special char</p>
+	            <p id="secure-number"><i class="fa-solid fa-xmark"></i> 1 number</p>
+	        </div>
+	    </label>
 
-	<h2 class="top">
-		Register your new account
-	</h2>
+	    <label for="password-verify">Password confirm</label>
+	    <div class="passwordDivs" id="passwordVerifyDiv">
+	        <input type="password" id="password-verify" name="password_confirm" placeholder="NX:b7!LrPg@t2X9" minlength="8" maxlength="50" required>
+	        <button type="button" class="hide-password" id="hide-password-verify"><i class="fa-solid fa-eye"></i></button>
+	    </div>
+	    <label class="secure-password-and-bad-password" id="secure-password-verify">
+	        <div id="secure-password-verify-details">
+	            <p id="message-valid-verify">&#8226 Password does not match</p>
+	        </div>
+	    </label>
 
-	{% if sign_succeed %}
-		<div class="sign-succeed">
-			<i class="far fa-check-circle"></i>
-			<p>Welcome {{ sign_succeed_username }}</p>
-		</div>
-	{% else %}
+	    {% if unknown_error or password_is_valid or password_confirm_is_valid %}
+        <label class="secure-password-and-bad-password">{{ username_is_valid }} / {{ password_is_valid }} / {{ password_confirm_is_valid }}</label>
+        {% endif %}
 
-	<div class="middle">
-
-		{% if unknown_error %}
-		<div class="error">
-			There was an unknown error with login...
-		</div>
-		{% endif %}
-
-		<div class="parts">
-			<label>Username</label>
-			<div class="input">
-				<input maxlength="150" required name="username" placeholder="username"> <!--MAXLENGTH : 150, django max username length-->
-				<button type="button">
-					<i class="fas fa-user"></i>
-				</button>
-			</div>
-
-			<span class="is_valid">{{ username_is_valid }}</span> <!-- IF it is get, password_is_valid just not work and span is empty -->
-		</div>
-
-		<div class="parts">
-			<label>Password</label>
-
-			<div class="input">
-				<input maxlength="100" required id="password" name="password" type="password" placeholder="password"> <!-- MAXLENGTH : 500, django max password length is infinite as they say : https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.models.User.password but we even limit. -->
-				<button onclick="showPassword('password')" type="button">
-					<i class="fas fa-eye-slash"></i>
-				</button>
-			</div>
-			
-			<span class="is_valid">{{ password_is_valid }}<span> <!-- IF it is get, password_is_valid just not work and span is empty -->
-		</div>
-
-		<div class="parts">
-			<label>Password confirm</label>
-
-			<div class="input">
-				<input maxlength="100" required id="password-confirm" name="password_confirm" type="password" placeholder="password confirm"> <!-- MAXLENGTH : 500, django max password length is infinite as they say : https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.models.User.password but we even limit. -->
-				<button onclick="showPassword('password-confirm')" type="button">
-					<i class="fas fa-eye-slash"></i>
-				</button>
-			</div>
-			
-			<span class="is_valid">{{ password_confirm_is_valid }}<span> <!-- IF it is get, password_is_valid just not work and span is empty -->
-		</div>
-	</div>
-  <div class="end">
-    <button type="submit" class="button-blue bottom">
-      Register
-    </button>
-  </div>
-	
-
-	<div class="separator"></div>
-
-	<a class="already-login" href="sign-in">I already have an account</a>
-
-	{% endif %}
+	    <input type="submit" id="submit-register" name="submit-register" value="Register">
 
 
-
-</form>
-
+	    <div class="separator"></div>
+	    <p class="already-account">Already have an account? <a href="sign-in">Login now</a></p>
+	</form>
 </main>
 
-<!-- % include 'footer.html' %} -->
-
-
-<script src="{% static 'login.js' %}"></script>
+<script src="{% static 'register.js' %}"></script>
 
 </body>
 </html>
-
-<!--<div class="align"></div>
-
-	<a class="already-login" href="../login/sign-in">You already have an account ?</a>-->

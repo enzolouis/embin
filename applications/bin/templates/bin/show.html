@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ code }} ➔ ASFIX</title>
+	<title>Bin ➔ {{ bin.code }}</title>
     {% load static %}
     {% include 'head.html' %}
+    <link href="{% static 'bin/styles.css' %}" rel="stylesheet">
     <link href="{% static 'bin/show.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
 
@@ -12,36 +13,28 @@
 
 {% include 'header.html' %}
 <main>
+    <!-- le {{ line }} est deja echappe pour eviter les failles -->
+    <pre id="content" class="prettyprint">{% for line in bin.content %}<li>{{ line }}</li>{% endfor %}</pre>
 
-<pre id="content" class="prettyprint">{% for line in content %}<li>{{ line }}</li>{% endfor %}</pre>
 
-<div class="code">
-    <p class="t1">Partagez ce code :</p>
-    <p class="t2"><i class="fas fa-copy"></i>  {{ code }}</p>
-</div>
-<button class="bottom-button create-button" type="button"><a href="." class="bottom-button-a"><i class="fas fa-plus"></i></a></button>
-<button onclick="copyClipboard()" class="bottom-button copy-button" type="button"><i class="fas fa-copy"></i></button>
-<button onclick="printDocument()" class="bottom-button print-button" type="button"><i class="fas fa-print"></i></button>
-
+    <div class="infos">
+        <button class="copy-code"><i class="fa-solid fa-share-from-square"></i></button>
+        <p>Code</p>
+        <span class="infos-code list-bin-tag">{{ bin.code }}</span>
+        <p>Title</p>
+        <textarea readonly>{{ bin.title }}</textarea>
+        <p>Tags</p>
+        <div class="list-tags">
+            {% for tag in bin.tags.all %}
+            <span class="list-bin-tag {{ tag }}">{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <button class="bottom-button create-button" type="button"><a href="." class="bottom-button-a"><i class="fas fa-plus"></i></a></button>
+    <button onclick="copyClipboard()" class="bottom-button copy-button" type="button"><i class="fas fa-copy"></i></button>
 </main>
 
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-
-<script>
-const content = document.getElementById("content")
-
-function copyClipboard() {
-    const range = document.createRange();
-    range.selectNodeContents(content);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    document.execCommand("copy");
-}
-
-function printDocument() {
-    console.log("LET'S PRINT !")
-}
-</script>
+<script src="{% static 'bin/show.js' %}"></script>
 </body>
 </html>

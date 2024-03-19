@@ -23,23 +23,14 @@ def login_(request): # DON'T OVERWRITE auth.login from django
 # trop bien
 # https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.get_user
 def sign_in(request):
-	print("SIGN IN")
 	if request.user.is_authenticated:
 		return redirect("profile")
 
 	if request.method == "GET":
-		print("SIGN IN : GET")
 		return render(request, "sign-in.html", {'form':AuthenticationForm})
 	else:
-
 		username = request.POST["username"]
 		password = request.POST["password"]
-
-		print("--> SIGN IN : POST")
-
-		# john : raise
-		# mityno : ok
-		# ember : ok
 
 		try:
 			user = User.objects.get(username=username)
@@ -63,12 +54,12 @@ def sign_in(request):
 			print("--> SIGN IN : POST 4 : LOGIN")
 
 			login(request, user)
-			return render(request, "sign-in.html", {"sign_succeed":True, "sign_succeed_username":username})
+			return redirect("/list?loginSucceed=true")
 		else:
 			print("--> SIGN IN : POST 4 : LOGIN ERROR")
 			return render(request, "sign-in.html", {"unknown_error":True})
 
-username_matches = string.ascii_letters + string.digits + "_@+.-"
+username_matches = string.ascii_letters + string.digits # + "_@+.-" (django default but not for my app)
 
 def sign_up(request):
 	if request.user.is_authenticated:
@@ -82,19 +73,18 @@ def sign_up(request):
 		password = request.POST["password"]
 		password_confirm = request.POST["password_confirm"]
 
-		# _ @ + . -
 		for letter in username:
 			if letter not in username_matches:
 				return render(request, "sign-up.html", {"username_is_valid":f"\" {letter} \" is not an allowed char"})
 
 
-		if len(username) > 10 or len(username) == 0:
-			return render(request, "sign-up.html", {"username_is_valid":"Username is not conform (minimum 1 / maximum 150)"})
-		elif len(password) > 20 or len(password) < 8:
-			return render(request, "sign-up.html", {"password_is_valid":"Password is not conform (minimum 8 / maximum 150)"})
+		if len(username) > 50 or len(username) == 0:
+			return render(request, "sign-up.html", {"username_is_valid":"Username is not conform (minimum 1 / maximum 50)"})
+		elif len(password) > 100 or len(password) < 8:
+			return render(request, "sign-up.html", {"password_is_valid":"Password is not conform (minimum 8 / maximum 100)"})
 
 		if password_confirm != password:
-			return render(request, "sign-up.html", {"password_confirm_is_valid":"Password confirm is not equals to password"})
+			return render(request, "sign-up.html", {"password_confirm_is_valid":"Password confirm does not match"})
 
 		try:
 			user = User.objects.get(username=username)
@@ -102,7 +92,8 @@ def sign_up(request):
 			new_user = User.objects.create_user(username, password=password)
 			new_user.save()
 			login(request, new_user)
-			return render(request, "sign-up.html", {"sign_succeed":True, "sign_succeed_username":username})
+
+			return redirect("/list?registerSucceed=true")
 		else:
 			return render(request, "sign-up.html", {"username_is_valid":"This username already exists"})
 
@@ -115,6 +106,18 @@ def profile(request):
 	else:
 		logout(request)
 		return redirect("login/sign-in")
+
+
+def userExists(request):
+    if request.method == "POST" and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        username = request.POST["username"]
+
+        if User.objects.filter(username=username).exists():
+        	return HttpResponse("exist")
+        else:
+        	return HttpResponse("not exist")
+    else:
+        raise Http404
 
 def _404_page_not_found_error(request, exception):
 	try:

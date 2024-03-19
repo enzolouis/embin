@@ -4,6 +4,19 @@
 @import 'footer.css';
 @import 'markdown_highlight.css';
 
+:root {
+	--main-color: rgb(22, 160, 133);
+	--main-color-opacity-01: rgba(22, 160, 133, 0.1);
+	--main-color-opacity-02: rgba(22, 160, 133, 0.2);
+	--main-color-opacity-065: rgba(22, 160, 133, 0.65);
+
+	--yellow: rgb(241, 196, 15);
+
+	--blue: rgb(72, 126, 176);
+	--blue-opacity-02: rgba(72, 126, 176, 0.2);
+	--red: rgb(232, 65, 24);
+	--red-opacity-02: rgba(232, 65, 24, 0.2);
+}
 
 * {
 	box-sizing:border-box;
@@ -27,7 +40,7 @@ ol, ul, li {
 pre {
 	margin:0;
 	word-wrap: break-word;
-  	white-space: pre-wrap; /* or pre to bottom scroll bar */
+	white-space: pre-wrap; /* or pre to bottom scroll bar */
 	font-family:'Courier New', Courier, monospace;
 	overflow: auto;
 }
@@ -39,9 +52,9 @@ html, body { /* don't have a white background when the page is empty */
 body {
 	font-family:Corbel; /* "Verdana", "Agency FB" */
 	font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 16px;
 	padding:0;
 	position:relative;
@@ -94,36 +107,16 @@ main {
 	border-radius:5px;
 	text-align:center;
 	display:block; /* block in case of <a>, <button>, ... */
-	background-color:rgb(68, 189, 50);
+	background-color:var(--main-color);
 	color:#fefefe;
-	border:1px solid rgb(68, 189, 50); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+	border:1px solid var(--main-color); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
 
-	transition:all 0.3s linear;
+	transition:all 0.1s linear;
 }
 
 .button-green:hover {
-  background-color:#fefefe;
-  color:rgb(68, 189, 50);
+  background-color:var(--main-color-opacity-02);
 }
-
-.button-green-hover {
-	cursor:pointer;
-	padding:2%;
-	border-radius:5px;
-	text-align:center;
-	display:block; /* block in case of <a>, <button>, ... */
-	background-color:#fefefe;
-	color:rgb(68, 189, 50);
-	border:1px solid rgb(68, 189, 50); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
-
-	transition:all 0.3s linear;
-}
-
-.button-green-hover:hover {
-  background-color:rgb(68, 189, 50);
-  color:#fefefe;
-}
-
 
 .button-blue {
 	cursor:pointer;
@@ -131,36 +124,16 @@ main {
 	border-radius:5px;
 	text-align:center;
 	display:block; /* block in case of <a>, <button>, ... */
-	background-color:rgb(72, 126, 176);
+	background-color: var(--blue);
 	color:#fefefe;
-	border:1px solid rgb(72, 126, 176); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+	border:1px solid var(--blue);
 
-	transition:all 0.3s linear;
+	transition:all 0.1s linear;
 }
 
 .button-blue:hover {
-  background-color:#fefefe;
-  color:rgb(72, 126, 176);
+  background-color:var(--blue-opacity-02);
 }
-
-.button-blue-hover {
-	cursor:pointer;
-	padding:2%;
-	border-radius:5px;
-	text-align:center;
-	display:block; /* block in case of <a>, <button>, ... */
-	background-color:#fefefe;
-	color:rgb(72, 126, 176);
-	border:1px solid rgb(72, 126, 176); /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
-
-	transition:all 0.3s linear;
-}
-
-.button-blue-hover:hover {
-  background-color:rgb(72, 126, 176);
-  color:#fefefe;
-}
-
 
 .button-red {
 	cursor:pointer;
@@ -168,14 +141,54 @@ main {
 	border-radius:5px;
 	text-align:center;
 	display:block; /* block in case of <a>, <button>, ... */
-	background-color:#e84118;
+	background-color: var(--red);
 	color:#fefefe;
-	border:1px solid #e84118; /* BORDER INVISIBLE SANS HOVER, VISIBLE AU HOVER */
+	border:1px solid var(--red);
 
-	transition:all 0.3s linear;
+	transition:all 0.1s linear;
 }
 
 .button-red:hover {
-  background-color:#fefefe;
-  color:#e84118;
+	background-color:var(--red-opacity-02);
+}
+
+.account-created {
+    text-align: center;
+    color: white;
+    height: 80px;
+    width: 25vw;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    background-color: var(--main-color-opacity-065);
+    position: fixed;
+    top: 8%;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 1000000000;
+    font-weight: 600;
+    font-size: 20px;
+
+    animation: popupEnter 0.4s forwards, 
+    popupLeave 0.4s 4s forwards
+}
+
+@keyframes popupLeave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(25vw);
+    }
+}
+
+@keyframes popupEnter {
+    0% {
+        transform: translateX(25vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

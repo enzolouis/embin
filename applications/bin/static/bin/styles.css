@@ -1,0 +1,21 @@
+.list-bin-tag {
+    background: #333333;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+}
+
+.list-bin-tag.python {
+    background: rgba(230, 126, 34, 0.1);
+}
+
+.list-bin-tag.java {
+    background: rgba(41, 128, 185, 0.1);
+}
+
+.list-bin-tag.php {
+    background: rgba(86,88,117, 0.5);
+}
+

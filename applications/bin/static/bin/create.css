@@ -1,4 +1,4 @@
-.bin-create textarea {
+.bin-create textarea.content {
 	font-family:"Courier new", Courier, monospace;
 	position:fixed;
 	width:100%;
@@ -12,20 +12,26 @@
 }
 
 @media screen and (max-width:800px) {
-	.bin-create textarea {
+	.bin-create textarea.content {
 		font-size:20px;
 	}
 }
 
-.bin-create button.unactive {
+.bottom-options {
 	position:fixed;
-	bottom:3vh;
-	right:3vh;
-	width:10vh;
-	height:10vh;
-	border-radius:50%;
+	bottom:0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
 
-	background-color:#333333;
+.bin-create button.unactive {
+	width:60px;
+	height: 60px;
+	border-radius:5px;
+
+	background-color:#222222;
 	color:#cccccc;
 	cursor:not-allowed;
 	opacity:0.3;
@@ -43,6 +49,85 @@
 
 .bin-create svg {
 	font-size:40px;
+}
+
+.bin-create .bin-title {
+	border-radius:2px;
+	padding: 3px;
+	background-color:#333333;
+	color:#cccccc;
+
+	resize:none;
+}
+
+.optional {
+	font-size: 10px;
+	color: #888888;
+}
+
+.bin-create .lst-parts {
+	flex: 1;
+	display: flex;
+	gap: 10px;
+	flex-flow: row wrap;
+	align-items: center;
+}
+
+.bin-create .bin-tags {
+	background-color: #222222;
+}
+
+.bin-tags .lst-tags {
+	color: #cccccc;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+	padding: 5px 20px;
+	width: 600px;
+}
+
+.bin-tags .lst-tags p:nth-child(1) {
+	margin: auto 0;
+}
+
+.bin-tags .lst-tags .list-bin-tag {
+	align-self: center;
+	cursor: pointer;
+}
+
+.bin-tags .lst-tags .add-tag {
+	background: unset;
+	cursor: pointer;
+	border-radius: 50%;
+	/* bug de hitbox pointer */
+}
+
+.bin-tags .lst-tags .add-tag svg {
+	font-size: 10px;
+	color: #cccccc;
+	border: 1px solid #cccccc;
+	padding: 5px;
+	border-radius: 50%;
+}
+
+.bin-tags .lst-defined-tags {
+	visibility: hidden;
+	position: absolute;
+	top: -80px;
+	left: 80px;
+	height: 100px;
+	overflow-y: scroll;
+	background-color: #222222;
+	color: #cccccc;
+	border: 1px solid #111111;
+	border-radius: 5px;
+}
+.bin-tags .lst-defined-tags li {
+	padding: 5px;
+}
+.bin-tags .lst-defined-tags li:hover {
+	background-color: #333333;
+	cursor: pointer;
 }
 
 button.preview {

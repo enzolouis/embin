@@ -1,36 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Lilita+One&family=Luckiest+Guy&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* NAVIGATION BAR */
-header.header {
-	padding:1% 0 1% 0;
-	background-color:#333333;
-	display:flex;
-	flex-flow:row wrap;
-	justify-content: space-between;
-	align-items:center;
-	text-align:center;
-}
-
-header.header h1 {
-	flex:1;
-}
-
-/*
-#navbar-deploy {
-	position:fixed;
-	left:3px;
-	top:3px;
-	width:50px;
-	height:50px;
-	background:none;
-}
-*/
-
 nav.navbar-parent {
 	font-family: "Lilita One", sans-serif !important;
 	font-weight: 400;
 	font-style: normal;
-	/* position: sticky */
+	position: sticky;
 	top:0;
 	background-color:#222222;
 	display:flex;
@@ -58,7 +33,6 @@ nav.navbar-parent {
 	display: flex;
 	flex-flow: row wrap;
 	align-items:center;
-	
 }
 
 #appname {
@@ -71,50 +45,29 @@ nav.navbar-parent {
 	flex:0.1;
 	text-align:center;
 	padding:2%;
-	transition:all 0.2s linear;
-}
-
-.logo-website {
-	padding:5px;
-	position:absolute;
-	left:4vh;
-}
-
-.logo-website img {
-	width:10vh;
-}
-
-.button-top {
-	display:none;
-	padding:1%;
-	position:absolute;
-	right:0;
-	font-size:200%;
-	color:#204ecf;
-}
-
-.button-top svg {
-	cursor:pointer;
-}
-
-.navbar-elt {
 	color:#cccccc;
+	transition:all 0.2s linear;
 }
 
 .navbar-elt:hover {
 	color:white;
 }
 
-/*
-.navbar-elt-sign {
-	flex:0 1px 10%;
-	margin-left:1%;
-	align-self: center;
-	position:relative;
-	padding:1% !important;
-	left:30%;
+.button-top {
+	display:none;
+	padding:1%;
+	position:fixed;
+	right:0;
+	bottom: 0;
+	font-size:200%;
+	color:rgb(22, 160, 133);
 }
-*/
+
+.button-top svg {
+	cursor:pointer;
+}
+
+
 
 div.sign {
 	flex:0.5;
@@ -139,27 +92,6 @@ div.sign a {
 		padding:1%;
 	}
 }
-
-
-
-
-
-/*
-.navbar-role {
-	position:absolute;
-	right:0;
-	padding:2%;
-	font-size:150%;
-}
-
-.navbar-role svg {
-	transition:all 0.2s linear;
-}
-
-.navbar-role svg:hover {
-	color:#204ecf;
-}
-*/
 
 
 /* LOADER */

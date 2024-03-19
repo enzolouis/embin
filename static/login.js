@@ -1,16 +1,24 @@
-function showPassword(input_id) {
-	let eyesClasses = document.activeElement.children[0].classList
-	let inputPassword = document.getElementById(input_id)
+document.getElementById("password").addEventListener("input", function(event) {
+    document.getElementById("password").value = document.getElementById("password").value.replace(' ', '');
+});
+
+document.getElementById("login").addEventListener('input', function(event) {
+    document.getElementById("login").value = document.getElementById("login").value.replace(/[^a-zA-Z0-9]/g, '');
+});
 
 
-	// si l'input est de type password et l'oeil est fermé
-	if (eyesClasses.contains("fa-eye-slash")) {
-		eyesClasses.replace("fa-eye-slash", "fa-eye");
-		inputPassword.type = "text";
-	}
-	// sinon si l'input est de type text et l'oeil est ouvert
-	else { // if (eyesClasses.contains("fa-eye")) (and other)
-		eyesClasses.replace("fa-eye", "fa-eye-slash");
-		inputPassword.type = "password";
-	}
-}
+let isRegisterPasswordShow = false;
+
+document.getElementById("hide-password").addEventListener("click", function() {
+    let element = document.getElementById("hide-password");
+
+    if (isRegisterPasswordShow) {
+        element.innerHTML = '<i class="fa-solid fa-eye"></i>';
+        document.getElementById("password").type = "password";
+        isRegisterPasswordShow = false;
+    } else {
+        element.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        document.getElementById("password").type = "text";
+        isRegisterPasswordShow = true;
+    }
+})

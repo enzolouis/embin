@@ -4,7 +4,7 @@
 	{% load static %}
 	{% include 'head.html' %}
 	<link href="{% static 'login.css' %}" rel="stylesheet">
-	<title>Sign in ➔ ASFIX</title>
+	<title>Login ➔ Embin</title>
 </head>
 <body class="sign">
 
@@ -12,80 +12,31 @@
 
 <main>
 
-<form method="post" class="div-sign div-signin">
-	{% csrf_token %}
+<!-- MAXLENGTH : 150, django max username length-->
+<!-- MAXLENGTH : 500, django max password length is infinite as they say : https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.models.User.password but we even limit. -->
 
-	<h2 class="top">
-		Login to your account
-	</h2>
+    <form method="post" class="form-container form-login">
+    	{% csrf_token %}
 
-	{% if sign_succeed %}
-		<div class="sign-succeed">
-			<i class="far fa-check-circle"></i>
-			<p>Welcome back {{ sign_succeed_username }}</p>
-		</div>
-	{% else %}
+        <label for="login">Login</label>
+        <input type="text" class="login" id="login" name="username" placeholder="benjamin123" maxlength="150" required>
 
-	<div class="middle">
+        <label for="password">Password</label>
+        <div class="passwordDivs" id="passwordDiv">
+            <input type="password" id="password" name="password" placeholder="NX:b7!LrPg@t2X9" maxlength="50" required>
+            <button type="button" class="hide-password" id="hide-password"><i class="fa-solid fa-eye"></i></button>
+        </div>
+		{% if unknown_error or password_is_valid or username_is_valid %}
+        <label class="secure-password-and-bad-password">{{ unknown_error }}{{ username_is_valid }}{{ password_is_valid }}</label>
+        {% endif %}
+        <input type="submit" value="Login">
 
-		{% if unknown_error %}
-		<div class="error">
-			There was an unknown error with login...
-		</div>
-		{% endif %}
-
-		<div class="parts">
-			<label>Username</label>
-			<div class="input">
-				<input maxlength="150" required name="username" placeholder="username"> <!--MAXLENGTH : 150, django max username length-->
-				<button type="button">
-					<i class="fas fa-user"></i>
-				</button>
-			</div>
-
-			<span class="is_valid">{{ username_is_valid }}</span> <!-- IF it is get, password_is_valid just not work and span is empty -->
-		</div>
-
-		<div class="parts">
-			<label>Password</label>
-
-			<div class="input">
-				<input maxlength="100" required id="password" name="password" type="password" placeholder="password"> <!-- MAXLENGTH : 500, django max password length is infinite as they say : https://docs.djangoproject.com/fr/3.1/ref/contrib/auth/#django.contrib.auth.models.User.password but we even limit. -->
-				<button onclick="showPassword('password')" type="button">
-					<i class="fas fa-eye-slash"></i>
-				</button>
-			</div>
-			
-			<span class="is_valid">{{ password_is_valid }}<span> <!-- IF it is get, password_is_valid just not work and span is empty -->
-		</div>
-	</div>
-  
-  <div class="end">
-	  <button type="submit" class="button-green bottom">
-		  Login
-	  </button>
-  </div>
-  
-	<div class="separator"></div>
-
-	<a class="already-login" href="sign-up">I want to create my account</a>
-
-	{% endif %}
-
-
-
-</form>
-
+        <div class="separator"></div>
+        <p class="already-account">Don't have an account? <a href="sign-up">Register now</a></p>
+    </form>
 </main>
-
-<!-- % include 'footer.html' %} -->
-
 
 <script src="{% static 'login.js' %}"></script>
 
 </body>
 </html>
-
-<!--<div class="align"></div>
-
-	<a class="already-login" href="../login/sign-in">You already have an account ?</a>-->

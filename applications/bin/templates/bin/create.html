@@ -3,8 +3,9 @@
 <head>
 	{% load static %}
 	{% include 'head.html' %}
+    <link href="{% static 'bin/styles.css' %}" rel="stylesheet">
 	<link href="{% static 'bin/create.css' %}" rel="stylesheet">
-	<title>Bin ➔ Create ➔ ASFIX</title>
+	<title>Bin ➔ [New bin]</title>
 </head>
 <body>
 
@@ -12,49 +13,40 @@
 
 <main>
 
-<form action="" method="post" class="bin-create">
+<form action="" method="post" class="bin-create" onsubmit="fillTagsInHiddenInputOnSubmit(event)">
 	{% csrf_token %}
-	<textarea placeholder="keep calm and paste code" id="content" name="content" required autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
-	<button class="unactive" id="submit" type="button"><i class="fas fa-plus"></i></button>
+	<textarea class="content" placeholder="keep calm and paste code" id="content" name="content" required autofocus autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+	<input id="tags" name="tags" type="hidden">
+
+	<div class="bottom-options">
+
+
+		<div class="bin-tags">
+			<div class="lst-tags" id="lst-tags">
+				<div class="lst-parts" id="lst-tags-tags">
+					<p>Tags<br><span class="optional">Optional</span></p>
+					<button onclick="addTagPlus(event)" class="add-tag" type="button"><i class="fa-solid fa-plus"></i></button>
+				</div>
+				<div class="lst-parts" id="bin-title">
+					<p>Title<br><span class="optional">Optional</span></p>
+					<textarea class="bin-title" name="title"></textarea>
+				</div>
+				<button class="unactive" id="submit" type="button"><i class="fa-solid fa-check"></i></button>
+			</div>
+			
+			<ul id="lst-defined-tags" class="lst-defined-tags">
+				{% for tag in tags %}
+				<li id="{{ tag.name }}" onclick="clickOnTag(this)">{{ tag.name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+		
+		<!--<button class="unactive" id="submit" type="button"><i class="fas fa-plus"></i></button>-->
+	</div>
 
 </form>
 </main>
 
-<script>
-const submit = document.getElementById("submit");
-const content = document.getElementById("content")
-
-content.addEventListener("keydown", function(event) {
-	if (event.keyCode != 9) return
-
-	event.preventDefault();
-	submit.classList.add("active");
-	let start = this.selectionStart; // words before tab
-	let end = this.selectionEnd; // words after tab
-
-	this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
-
-	// reset cursor at the good place
-	this.selectionStart = start + 1;
-	this.selectionEnd = start + 1;
-});
-
-function checkActive() {
-	if (!content.value) {
-		submit.classList.remove("active")
-		submit.type = "button"
-	} else {
-		submit.classList.add("active")
-		submit.type = "submit"
-	}
-}
-
-window.onload = checkActive()
-content.addEventListener("input", checkActive)
-
-
-
-
-</script>
+<script src="{% static 'bin/create.js' %}"></script>
 </body>
 </html>

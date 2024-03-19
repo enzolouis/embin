@@ -8,295 +8,204 @@ body {
   justify-content:space-between;
 }
 
-
-
 main {
   display:flex;
   height:100%;
   align-items:center;
-}
-
-
-.div-login {
-  width:50%;
-  margin:auto;
-	border-radius:5px;
-	background-color:#444444;
-	border: 2px rgba(68, 189, 50, 0.65) solid;
-
-	box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-	-moz-box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-	-webkit-box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-}
-
-.div-login a {
-	/* styles.css (button-green, ...) */
-}
-
-.div-login .sign-in {
-	margin:10% 7% 4% 7%;
-}
-
-.div-login .sign-up {
-	margin:4% 7% 10% 7%;
-}
-
-.div-login .sign-in:hover {
-	margin:10% 5% 4% 5%;
-}
-
-.div-login .sign-up:hover {
-	margin:4% 5% 10% 5%;
-}
-
-.div-login a:hover:after {
-	content:"  →";
-}
-
-.div-login a:hover:before {
-	content:"←  ";
+  background-color: #2E2E2E;
 }
 
 
 
 
-/* sign pages : sign-up.html AND sign-in.html */
+/* new login */
 
-.link-in-button {
-	color:inherit;
+:root {
+    --login-page-background: #2e2E2E;
+    --login-foreground: #dddddd;
+
+    --login-background: #212121;
+
+    --login-input-and-separator-background: rgb(44, 47, 51);
+    --login-input-background-hover: rgba(44, 47, 51, 0.8);
+
+    --login-background-white-theme: #eeeeee;
+    --login-foreground-white-theme: #2e2E2E;
+
+    --turquoise-clair: rgb(26, 188, 156);
+    --turquoise-clair-hover: rgba(26, 188, 156, 0.8);
+    
+    --turquoise: rgb(22, 160, 133);
+    --turquoise-hover: rgba(22, 160, 133, 0.8);
+
+    --register-bar-password-color: #e74c3c;
+    --register-bar-password-verify-color: #e74c3c;
+    --register-bar-password-width: 0%;
+    --register-bar-password-verify-width: 0%;
 }
 
-/*body.sign {
-	padding-bottom:50%;
-}*/
-
-.div-sign {
-	margin:auto;
-	width:30%;
-
-	border-radius:5px;
-	background-color:#444444;  
-}
-
-.div-sign .top {
-	border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-	text-align:center;
-	color:#fefefe;
-	padding:5%;
-}
-
-.div-sign .middle {
-	padding:5% 4% 8% 4%;
-}
-
-.div-sign .bottom {
-	margin:0 auto;
-  margin-top:-5%;
-	width:100%;
-  border-radius:4px;
-}
-
-.div-sign .end {
-  padding: 0 4% 0 4%;
-  
-}
-
-.div-sign label {
-  color:#ededed !important;
-	display:block;
-	font-weight:bold;
-	margin-bottom:2%;
-  font-size:12px;
-}
-
-.div-sign div.input {
-	display:flex;
-	align-items:center;
-	
-	border-radius:4px;
-	transition:all 0.2s linear;
-  color:#bcbcbc !important;
-}
-
-.div-sign div.input:hover {
-	color:#fefefe;
-}
-
-.div-sign div.error {
-	padding:5%;
-	color:#e84118;
-	background-color:#fefefe;
-	border:1px solid #e84118;
-	border-radius:5px;
-	margin-bottom:3%;
-}
-
-.div-sign div.input input {
-	flex:1;
-	display:block;
-	background-color:#f5f6f7;
-	padding:3%;
-	background:none;
-	color:inherit; /* inherit from div.input */
-  font-size:16px;
-}
-
-.div-sign div.input input::placeholder {
-	opacity:0.7;
-}
+/* styles.css */
 
 
-.div-sign div.input button {
-	color:inherit; /* inherit from div.input */
-	margin:0 4%;
-	background:none;
-	cursor:pointer;
-	padding:0;
-	flex:0;
-	width:100%;
-	/* background already none */
-}
 
-.div-sign .parts {
-	margin-bottom:5%;
-}
-
-
-.div-sign .already-login {
-	display:block;
-	padding:4%;
-}
-
-.div-sign .separator {
-	border-top:3px solid #afbbc6;
-	margin:10% 5% 5% 5%;
-}
-
-.div-sign div.sign-succeed svg {
-	margin-top:5%;
-	margin-bottom:5%;
-	width:100%;
-	text-align:center;
-	font-size:250px;
-}
-
-.div-sign div.sign-succeed p {
-	text-align:center;
-	margin-bottom:5%;
-	font-weight:bold;
-}
-
-.div-sign .is_valid {
-	color:#e84118;
+body {
+    background-color: var(--login-page-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
 
 
-/* sign-up page : sign-up.html */
-
-
-.div-signup {
-	box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
-	-moz-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
-	-webkit-box-shadow: 0px 0px 10px 2px rgba(72, 126, 176,0.65);
-  border: 2px rgba(72, 126, 176,0.65) solid;
+.form-container {
+    border-top-width: 7px;
+    border-top-style: solid;
+    border-top: 7px solid var(--turquoise);
+    width: 340px;
+    padding: 20px;
+    background-color: var(--login-background);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.div-signup .top {
-	background:rgb(72, 126, 176);
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #aaaaaa;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-.div-signup label {
-	color:rgb(72, 126, 176);
+input {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    background-color: var(--login-input-and-separator-background);
+    color: #dddddd;
+}
+input:hover {
+    background-color: var(--login-input-background-hover);
+}
+input:focus::placeholder {
+    opacity: 0;
 }
 
-.div-signup div.input {
-	border:1px solid rgb(72, 126, 176);
-  background-color:rgba(72, 126, 176, 0.1);
-	color:rgb(72, 126, 176);
+input[type="submit"] {
+    background-color: var(--turquoise);
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+input[type="submit"]:hover {
+    background-color: var(--turquoise-hover);
 }
 
-.div-signup div.input:hover {
-	background-color:rgba(72, 126, 176, 0.2);
+.passwordDivs {
+    display:flex;
+    align-items: center;
 }
 
-.div-signup .already-login {
-	color:rgb(72, 126, 176);
+.passwordDivs button.hide-password {
+    margin:0;
+    padding:0;
+    cursor:pointer;
+    position: absolute;
+    right:10px;
+    background: none;
+    color:#aaaaaa;
+    font-size:15px;
 }
 
-.div-signup div.sign-succeed {
-	color:rgb(72, 126, 176);
+
+#password,
+.form-register #password-verify,
+.form-register #username {
+    margin: 0;
+}
+
+#passwordDiv,
+.form-register #passwordVerifyDiv,
+.form-register #passwordLoginDiv {
+    position: relative;
+    margin:0;
+}
+.form-login #passwordDiv {
+    margin-bottom:15px;
+}
+
+.form-register #passwordDiv::after,
+.form-register #passwordVerifyDiv::after {
+    transition: all 0.3 linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    content: "";
+    position: absolute;
+    height: 3px;
+    
+    bottom: 0;
+    left: 0;
+}
+
+.form-register #passwordDiv::after {
+    width: var(--register-bar-password-width);
+    background-color: var(--register-bar-password-color);
+}
+
+.form-register #passwordVerifyDiv::after {
+    width: var(--register-bar-password-verify-width);
+    background-color: var(--register-bar-password-verify-color);
+}
+
+.secure-password-and-bad-password {
+    color: var(--red);
+    margin-top: 3px;
+    margin-bottom: 12px;
+}
+
+.form-register #secure-password-details,
+.form-register #secure-password-verify-details,
+.form-register #secure-login-details {
+    margin: 0;
+    overflow: hidden;
+    height:0px;
+
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    font-size: 10px;
+}
+
+.container {
+    text-align: left;
+}
+
+.form-container a {
+    text-decoration: none;
+    color: var(--turquoise);
+    font-weight: 600;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
 }
 
 
 
-/* sign-in page : sign-in.html */
-
-.div-signin {
-	box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-  -moz-box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(68, 189, 50, 0.65);
-  border: 2px rgba(68, 189, 50, 0.65) solid;
+.already-account {
+    font-size: 12px;
+    margin: 0;
+    color:  #b5bac1;
 }
 
-.div-signin .top {
-	background:rgb(68, 189, 50);
-}
-
-.div-signin label {
-	color:rgb(68, 189, 50);
-}
-
-.div-signin div.input {
-	border:1px solid rgb(68, 189, 50);
-	background-color:rgba(68, 189, 50, 0.1);
-	color:rgb(68, 189, 50);
-}
-
-.div-signin div.input:hover {
-	background-color:rgba(68, 189, 50, 0.2);
-}
-
-.div-signin .already-login {
-	color:rgb(68, 189, 50);
-}
-
-.div-signin div.sign-succeed {
-	color:rgb(68, 189, 50);
-}
-
-@media screen and (max-width:1000px) {
-  body {
-    font-size: calc(16px + 1vw);
-    line-height: calc(1.1em + 0.5vw);
-  }
-  html, body {
-    height:auto;
-  }
-  
-  .div-sign .bottom {
-    font-size:35px;
-  }
-  
-  .div-sign label {
-    font-size:34px;
-  }
-  
-  .div-sign div.input input {
-    font-size:40px;
-  }
-  
-  .div-sign div.input button {
-    font-size:45px;
-  }
-  
-  .div-sign {
-	  width:100%;
-  }
-  
-  #appname {
-    font-size:50px;
-    margin:5%;
-  }
+.separator {
+    border-top: 3px solid var(--login-input-and-separator-background);
+    margin: 8% 5% 3% 5%;
 }

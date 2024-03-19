@@ -26,6 +26,7 @@ urlpatterns = [
     path('login/sign-up', views.sign_up, name="sign-up"),
     path("profile", views.profile, name="profile"),
     #path('articles/', include("applications.articles.urls")),
+    path('userExists', views.userExists, name="userExists"),
       path('', include("applications.bin.urls")),
     path('admin/', admin.site.urls),
 

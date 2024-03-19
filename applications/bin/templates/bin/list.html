@@ -1,23 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>...</title>
+    <title>Bin ➔ List</title>
+    {% load static %}
+    {% include 'head.html' %}
+    <link href="{% static 'bin/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'bin/show.css' %}" rel="stylesheet">
+    <link href="{% static 'bin/index.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/default.min.css">
+
 </head>
 <body>
 
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">Hello world</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Bonjour</td>
-            <td>à tous</td>
-        </tr>
-    </tbody>
-</table>
+{% include 'header.html' %}
+<main>
+
+
+{% if user.is_authenticated %}
+
+{% if request.GET.loginSucceed %}
+<div class="account-created">
+    <p>Welcome back, {{ user.username }}.</p>
+</div>
+{% elif request.GET.registerSucceed %}
+<div class="account-created">
+    <p>Welcome, {{ user.username }}.</p>
+</div>
+{% endif %}
+
+
+<div class="list-bin" id="list-bin-favorites">
+    <h2><i class="fa-solid fa-star"></i> Favorites</h2>
+    {% for bin in bins %}
+    {% if bin.is_favorite %}
+    <div class="bin-element {{ bin.code }}">
+        <button onclick="ajaxAddBinToFavorite(event, '{{ bin.code }}')" class="btn-add-favorites favorite">
+            <i class="fa-solid fa-star"></i>
+        </button>
+        <div class="list-bin-infos">
+            <i class="fa-solid fa-hashtag"></i>
+            <p class="list-bin-code">{{ bin.code }}</p>
+            <div class="list-bin-title">{{ bin.title|default:"<span class='notitle'>no title...</span>" }}<br>
+                <div class="list-bin-by-author">
+                    <span class="list-bin-by-label">by</span>
+                    <span class="list-bin-author">@{{ bin.author|default:'Anonymous' }}</span>
+                    <span class="list-bin-createdat-label">, created at</span>
+                    <span class="list-bin-author">{{ bin.created_at|date:"M d, Y, H:i" }}</span>
+                    <div class="list-bin-tags">
+                        {% for tag in bin.tags.all %}
+                        <span class="list-bin-tag {{ tag }}">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ bin.code }}" class="list-bin-preview">
+            <pre class="preview prettyprint">{{ bin.content|slice:":30" }}<br>...</pre>
+        </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="left-separator"></div>
+<div class="list-bin">
+    <h2><i class="fa-solid fa-pen-ruler"></i> My bins</h2>
+    {% for bin in bins %}
+    {% if bin.author_id == request.user.id %}
+    <div class="bin-element {{ bin.code }}">
+        {% if bin.is_favorite %}
+        <button onclick="ajaxAddBinToFavorite(event, '{{ bin.code }}')" class="btn-add-favorites favorite">
+            <i class="fa-solid fa-star"></i>
+        </button>
+        {% else %}
+        <button onclick="ajaxAddBinToFavorite(event, '{{ bin.code }}')" class="btn-add-favorites">
+            <i class="fa-regular fa-star"></i>
+        </button>
+        {% endif %}
+        <div class="list-bin-infos">
+            <i class="fa-solid fa-hashtag"></i>
+            <p class="list-bin-code">{{ bin.code }}</p>
+            <div class="list-bin-title">{{ bin.title|default:"<span class='notitle'>no title...</span>" }}<br>
+                <div class="list-bin-by-author">
+                    <span class="list-bin-by-label">by</span>
+                    <span class="list-bin-author">@{{ bin.author|default:'Anonymous' }}</span>
+                    <span class="list-bin-createdat-label">, created at</span>
+                    <span class="list-bin-author">{{ bin.created_at|date:"M d, Y, H:i" }}</span>
+                    <div class="list-bin-tags">
+                        {% for tag in bin.tags.all %}
+                        <span class="list-bin-tag {{ tag }}">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ bin.code }}" class="list-bin-preview">
+            <pre class="preview prettyprint">{{ bin.content|slice:":30" }}<br>...</pre>
+        </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+<div class="left-separator"></div>
+{% endif %}
+
+<div class="list-bin">
+    <h2><i class="fa-solid fa-folder-open"></i> Community bins</h2>
+    {% for bin in bins %}
+    {% if not request.user.is_authenticated or bin.author_id != request.user.id %}
+    <div class="bin-element {{ bin.code }}">
+        {% if user.is_authenticated %}
+        {% if bin.is_favorite %}
+        <button onclick="ajaxAddBinToFavorite(event, '{{ bin.code }}')" class="btn-add-favorites favorite">
+            <i class="fa-solid fa-star"></i>
+        </button>
+        {% else %}
+        <button onclick="ajaxAddBinToFavorite(event, '{{ bin.code }}')" class="btn-add-favorites">
+            <i class="fa-regular fa-star"></i>
+        </button>
+        {% endif %}
+        {% endif %}
+        <div class="list-bin-infos">
+            <i class="fa-solid fa-hashtag"></i>
+            <p class="list-bin-code">{{ bin.code }}</p>
+            <div class="list-bin-title">{{ bin.title|default:"<span class='notitle'>no title...</span>" }}<br>
+                <div class="list-bin-by-author">
+                    <span class="list-bin-by-label">by</span>
+                    <span class="list-bin-author">@{{ bin.author|default:'Anonymous' }}</span>
+                    <span class="list-bin-createdat-label">, created at</span>
+                    <span class="list-bin-author">{{ bin.created_at|date:"M d, Y, H:i" }}</span>
+                    <div class="list-bin-tags">
+                        {% for tag in bin.tags.all %}
+                        <span class="list-bin-tag {{ tag }}">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ bin.code }}" class="list-bin-preview">
+            <pre class="preview prettyprint">{{ bin.content|slice:":30" }}<br>...</pre>
+        </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<script src="{% static 'bin/index.js' %}"></script>
 
 </body>
 </html>
