@@ -18,10 +18,10 @@ content.addEventListener("keydown", function(event) {
 
 function checkActive() {
 	if (!content.value) {
-		submit.classList.remove("active")
+		submit.classList.remove("menu-bottom__btn-create-enabled")
 		submit.type = "button"
 	} else {
-		submit.classList.add("active")
+		submit.classList.add("menu-bottom__btn-create-enabled")
 		submit.type = "submit"
 	}
 }
@@ -34,18 +34,14 @@ let tags = [];
 
 let lstTagsDisplayed = false;
 
-function addTagPlus(event) {
-	if (lstTagsDisplayed) {
-		// deja gerer dans l'event
-		// document.getElementById('lst-defined-tags').style.visibility = "hidden";
-	} else {
-		console.log("visible")
+function showDefinedTags(event) {
+	if (!lstTagsDisplayed) {
 		document.getElementById('lst-defined-tags').style.visibility = "visible";
 		setTimeout(() => {
             document.addEventListener('click', hideOnClickAtOtherPlace);
         }, 0);
+	lstTagsDisplayed = true;
 	}
-	lstTagsDisplayed = !lstTagsDisplayed;
 }
 
 function hideOnClickAtOtherPlace() {
@@ -74,9 +70,6 @@ function deleteTag(p) {
 function clickOnTag(li) {
 	li.style.display = "none";
 	let tag = li.innerText
-	// deja gerer dans l'event
-	// document.getElementById('lst-defined-tags').style.visibility = "hidden";
-	// lstTagsDisplayed = false;
 	document.getElementById('lst-tags-tags').innerHTML += "<p onclick='deleteTag(this)' class='list-bin-tag "+tag+"'>"+tag+"</p>"
 	tags.push(tag)
 }

@@ -19,11 +19,11 @@
 {% if user.is_authenticated %}
 
 {% if request.GET.loginSucceed %}
-<div class="account-created">
+<div class="login-or-register-succeed">
     <p>Welcome back, {{ user.username }}.</p>
 </div>
 {% elif request.GET.registerSucceed %}
-<div class="account-created">
+<div class="login-or-register-succeed">
     <p>Welcome, {{ user.username }}.</p>
 </div>
 {% endif %}

@@ -1,1 +1,1 @@
-web: gunicorn asfix.wsgi --log-file -
+web: gunicorn embin.wsgi --log-file -

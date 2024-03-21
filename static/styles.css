@@ -152,7 +152,7 @@ main {
 	background-color:var(--red-opacity-02);
 }
 
-.account-created {
+.login-or-register-succeed {
     text-align: center;
     color: white;
     height: 80px;

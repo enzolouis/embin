@@ -1,4 +1,4 @@
-"""asfix URL Configuration
+"""embin URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -35,7 +35,7 @@ urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
 ]
 
-handler400 = "asfix.views._400_error"
-handler404 = "asfix.views._404_page_not_found_error"
+handler400 = "embin.views._400_error"
+handler404 = "embin.views._404_page_not_found_error"
 
-handler500 = "asfix.views._500_internal_server_error"
+handler500 = "embin.views._500_internal_server_error"

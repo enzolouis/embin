@@ -5,6 +5,7 @@
     font-weight: bold;
     font-size: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .list-bin-tag.python {
