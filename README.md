@@ -16,4 +16,4 @@ Je l'ai repêché en 2024 pour le publier sur l'url [bin.enzolouis.me](https://b
 
 ## Accès
 
-Rendez-vous sur [bin.enzolouis.me](https://bin.enzolouis.me)
+Rendez-vous sur [bin.enzolouis.me](https://bin.enzolouis.me) (délai d'attente un peu long, hébergeur temporaire)
