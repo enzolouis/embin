@@ -77,3 +77,4 @@ function clickOnTag(li) {
 function fillTagsInHiddenInputOnSubmit(event) {
 	document.getElementById('tags').value = tags.join(',')
 }
+

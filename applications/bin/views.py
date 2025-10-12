@@ -3,7 +3,10 @@ import hashlib
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404, Http404
 
 from django.contrib.auth.models import User
-from .models import Bin, Tag, Favorite
+from .models import Bin, Tag, Favorite, Pattern
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
 
 
 # numérotation ligne
@@ -103,3 +106,79 @@ def add_bin_to_favorites(request):
 
     else:
         raise Http404
+
+
+
+# Désactive CSRF pour simplifier le fetch cross-origin (à sécuriser en prod)
+@csrf_exempt
+def patrons(request, pk=None):
+    """
+    CRUD complet pour le modèle Pattern.
+    GET all       -> /patrons/          (pk=None)
+    GET one       -> /patrons/<id>/     (pk=<id>)
+    POST add      -> /patrons/          (pk=None)
+    PUT edit      -> /patrons/<id>/     (pk=<id>)
+    DELETE        -> /patrons/<id>/     (pk=<id>)
+    """
+
+    # GET
+    if request.method == "GET":
+        if pk:
+            try:
+                pattern = Pattern.objects.values().get(pk=pk)
+                return JsonResponse({"status": "ok", "pattern": pattern})
+            except Pattern.DoesNotExist:
+                return JsonResponse({"status": "error", "message": "Pattern inconnu"}, status=404)
+        else:
+            patterns = Pattern.objects.all().order_by("-updated_at").values("id", "name", "created_at", "updated_at", "easeallowance", "chestCirc")
+            return JsonResponse({"status": "ok", "patterns": list(patterns)})
+
+    # POST (Add)
+    elif request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            pattern = Pattern.objects.create(
+                name=data["name"]
+            )
+            return JsonResponse({"status": "ok", "id": pattern.id})
+        except KeyError as e:
+            return JsonResponse({"status": "error", "message": f"Champ manquant: {e}"}, status=400)
+
+    # PUT (Edit)
+    elif request.method == "PUT" and pk:
+        try:
+            pattern = Pattern.objects.get(pk=pk)
+        except Pattern.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Pattern inconnu"}, status=404)
+
+        try:
+            data = json.loads(request.body)
+            fields = [
+                "name", "height", "headheight", "backwaistlength", "frontwaistlength",
+                "hipdepth", "jacketlength", "dresslength", "skirtlength", "cratchlength",
+                "kneelength", "trouserslength", "elbowlength", "sleevelength",
+                "chestCirc", "bustcirc", "waistcirc", "hip", "neckcircumference",
+                "wristcircumference", "backwidth", "backshoulderwidth", "bustheight",
+                "bustdifference", "breastdistance", "easeallowance"
+            ]
+
+            for field in fields:
+                if field in data:
+                    setattr(pattern, field, data[field])
+            pattern.save()
+            return JsonResponse({"status": "ok"})
+        except Exception as e:
+            print(e)
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+
+    # DELETE
+    elif request.method == "DELETE" and pk:
+        try:
+            pattern = Pattern.objects.get(pk=pk)
+            pattern.delete()
+            return JsonResponse({"status": "ok"})
+        except Pattern.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Pattern inconnu"}, status=404)
+
+    else:
+        return JsonResponse({"status": "error", "message": "Méthode non supportée"}, status=405)

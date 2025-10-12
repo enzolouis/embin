@@ -3,7 +3,8 @@
 <nav id="navbar" class="navbar-parent">
 	<div id="navbar-content" class="header-content">
 		<h1 id="appname">
-			Embin
+			<!--Embin-->
+			<img src="{% static 'logo.png' %}">
 		</h1>
 
 		<div class="links">
@@ -13,6 +14,9 @@
 
 			<a href="/list" class="navbar-elt bins-elt">
 				BINS
+			</a>
+			<a onclick="fetchPatron()" class="navbar-elt bins-elt" style="cursor:pointer;">
+				PATRONS
 			</a>
 
 			{% if user.is_authenticated %}
@@ -110,31 +114,27 @@ window.onscroll = function () {
 		topButton.style.display = "none";
 	}
 }
-/*
-let diff = 0;
-let change = 0;
-const navbarAnimElement = document.getElementById("separator-move");
 
-window.onscroll = function () {
-	if(diff < document.documentElement.scrollTop) {
-		change++;
-		console.log("-> SCROLL : change += 1")
-	} else {
-		change--;
-		console.log("-> SCROLL : change -= 1")
-	}
-
-	console.log(change + "%")
-
-	navbarAnimElement.children[0].style.width = change + "%"
-	console.log("-> SCROLL : width = x%")
-
-	if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-		topButton.style.display = "block";
-	} else {
-		topButton.style.display = "none";
-	}
-	diff = document.documentElement.scrollTop
+function fetchPatron() {
+	fetch('/patrons', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded',
+		},
+		/*body: new URLSearchParams({
+			'id': 'some_id_value'
+		}),*/
+	})
+	.then(response => response.json())
+	.then(data => {
+		if (data.status === "ok") {
+			console.log(data);
+		} else {
+			// Handle the error
+		}
+	})
+	.catch(error => {
+		console.error('Error:', error);
+	});
 }
-*/
 </script>

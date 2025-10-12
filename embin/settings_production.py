@@ -3,9 +3,10 @@ import dj_database_url
 
 from .settings import *
 
+CORS_ALLOW_ALL_ORIGINS = False # to disable in production
 
-DEBUG = True
-TEMPLATE_DEBUG = True
+DEBUG = True # to disable in production
+TEMPLATE_DEBUG = True # to disable in production
 
 SECRET_KEY = os.environ["SECRET_KEY"] # in heroku
 
