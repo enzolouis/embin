@@ -137,6 +137,7 @@ def patrons(request, pk=None):
     elif request.method == "POST":
         try:
             data = json.loads(request.body)
+            print(data["name"])
             pattern = Pattern.objects.create(
                 name=data["name"]
             )

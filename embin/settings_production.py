@@ -3,7 +3,8 @@ import dj_database_url
 
 from .settings import *
 
-CORS_ALLOW_ALL_ORIGINS = False # to disable in production
+# remettre à False (temporaire)
+CORS_ALLOW_ALL_ORIGINS = True # to disable in production
 
 DEBUG = True # to disable in production
 TEMPLATE_DEBUG = True # to disable in production
