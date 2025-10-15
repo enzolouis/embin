@@ -15,9 +15,6 @@
 			<a href="/list" class="navbar-elt bins-elt">
 				BINS
 			</a>
-			<a onclick="fetchPatron()" class="navbar-elt bins-elt" style="cursor:pointer;">
-				PATRONS
-			</a>
 
 			{% if user.is_authenticated %}
 			<a href="/profile" class="navbar-elt profile-elt">
@@ -113,28 +110,5 @@ window.onscroll = function () {
 	} else {
 		topButton.style.display = "none";
 	}
-}
-
-function fetchPatron() {
-	fetch('/patrons', {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		/*body: new URLSearchParams({
-			'id': 'some_id_value'
-		}),*/
-	})
-	.then(response => response.json())
-	.then(data => {
-		if (data.status === "ok") {
-			console.log(data);
-		} else {
-			// Handle the error
-		}
-	})
-	.catch(error => {
-		console.error('Error:', error);
-	});
 }
 </script>

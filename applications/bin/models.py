@@ -67,9 +67,11 @@ class Pattern(models.Model):
     bustheight = models.FloatField(null=True, blank=True)
     bustdifference = models.FloatField(null=True, blank=True)
     breastdistance = models.FloatField(null=True, blank=True)
-    
+    bottomtrouserswidth = models.FloatField(null=True, blank=True)
+    waistbanwidth = models.FloatField(null=True, blank=True)
     
     easeallowance = models.FloatField(null=True, blank=True)
+    trouserseaseallowance = models.FloatField(null=True, blank=True)
     
     
     created_at = models.DateTimeField(auto_now_add=True)

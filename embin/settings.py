@@ -109,7 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://enzolouis.github.io"
+    "http://enzolouis.github.io",
+    "https://enzolouis.github.io"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True

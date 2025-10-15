@@ -130,14 +130,13 @@ def patrons(request, pk=None):
             except Pattern.DoesNotExist:
                 return JsonResponse({"status": "error", "message": "Pattern inconnu"}, status=404)
         else:
-            patterns = Pattern.objects.all().order_by("-updated_at").values("id", "name", "created_at", "updated_at", "easeallowance", "chestCirc")
+            patterns = Pattern.objects.all().order_by("-updated_at").values("id", "name", "created_at", "updated_at", "chestCirc")
             return JsonResponse({"status": "ok", "patterns": list(patterns)})
 
     # POST (Add)
     elif request.method == "POST":
         try:
             data = json.loads(request.body)
-            print(data["name"])
             pattern = Pattern.objects.create(
                 name=data["name"]
             )
@@ -160,12 +159,18 @@ def patrons(request, pk=None):
                 "kneelength", "trouserslength", "elbowlength", "sleevelength",
                 "chestCirc", "bustcirc", "waistcirc", "hip", "neckcircumference",
                 "wristcircumference", "backwidth", "backshoulderwidth", "bustheight",
-                "bustdifference", "breastdistance", "easeallowance"
+                "bustdifference", "breastdistance", "bottomtrouserswidth", "waistbanwidth", "easeallowance", "trouserseaseallowance"
             ]
 
             for field in fields:
                 if field in data:
-                    setattr(pattern, field, data[field])
+                    value = data[field]
+                    # Si la valeur est une chaîne vide, on la convertit en None
+                    print(value)
+                    if value == "":
+                        print("empty")
+                        value = None
+                    setattr(pattern, field, value)
             pattern.save()
             return JsonResponse({"status": "ok"})
         except Exception as e:
